@@ -1,9 +1,10 @@
-# JLS19_Diogo_Tiago_Valedir
+# Repositório do Projeto de PPM - Grupo JLS19 
 
 Repositório do projeto de PPM do Grupo JLS19 onde foi desenvolvido o jogo Atari Go
 
-Diogo Lourenço - 10518
+---
 
-Tiago Inácio - 110890
-
-Valedir Andrade - 23905
+### Membros do Grupo
+- **Diogo Lourenço** - Nº106518
+- **Tiago Inácio** - Nº110890
+- **Sérgio Silva** - Nº111052
