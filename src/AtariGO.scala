@@ -1,23 +1,7 @@
 import AtariGOUtils.{printBoard, readMyRandomStateToFile, writeMyRandomStateToFile}
 import AtariGo.Board
 import Stone._
-
 import scala.util.Random
-
-trait RandomWithState {
-  def nextInt(n:Int): (Int, RandomWithState)
-}
-
-//MyRandom
-case class MyRandom(seed: Long) extends RandomWithState {
-  def nextInt(n: Int): (Int, MyRandom) = {
-    val newSeed = (seed * 0x5DEECE66DL + 0xBL) & 0xFFFFFFFFFFFFL
-    val nextRandom = MyRandom(newSeed)
-    val nn = ((newSeed >>> 16).toInt) % n
-    (if(nn<0) -nn else nn, nextRandom)
-  }
-}
-
 
 object AtariGo extends App {
 
@@ -101,4 +85,3 @@ object AtariGo extends App {
   //Guardar o novo MyRandom no ficheiro, para que seja sempre aleatorio o inicio de qualquer jogo
   writeMyRandomStateToFile(r1)
 }
-
