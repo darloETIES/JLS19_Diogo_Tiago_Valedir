@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c031a505-ecb4-45ce-9d39-b6287ba5f808" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controllers/AtariGOController.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/AtariGOApp.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/chooseView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lastMyRandom" beforeDir="false" afterPath="$PROJECT_DIR$/lastMyRandom" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/AtariGoView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/AtariGoView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AtariGO.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/AtariGO.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +20,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
+        <option value="module-info" />
       </list>
     </option>
   </component>
@@ -37,30 +39,68 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.AtariGo.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;UI&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Diogo/Documents/ProjetoPPM/JLS19_Diogo_Tiago_Valedir/javafx-sdk-21.0.7/lib&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.AtariGOApp.executor": "Run",
+    "Application.AtariGo.executor": "Run",
+    "Application.FxApp.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "UI",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Diogo/Documents/ProjetoPPM/JLS19_Diogo_Tiago_Valedir/javafx-sdk-21.0.7/lib",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Global Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Diogo\Desktop\ISCTEStuff\PPM\PROJ_PPM\JLS19_Diogo_Tiago_Valedir" />
     </key>
+  </component>
+  <component name="RunManager" selected="Application.FxApp">
+    <configuration name="AtariGOApp" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="AtariGOApp" />
+      <module name="JLS19_Diogo_Tiago_Valedir" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AtariGo" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="AtariGo" />
+      <module name="JLS19_Diogo_Tiago_Valedir" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FxApp" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="FxApp" />
+      <module name="JLS19_Diogo_Tiago_Valedir" />
+      <option name="PROGRAM_PARAMETERS" value="-p $ModuleFileDir$/lib/javafx-sdk-11.0.2/lib --add-modules javafx.controls,javafx.base,javafx.fxml,javafx.graphics,javafx.media,javafx.web --add-opens=javafx.graphics/javafx.scene=ALL-UNNAMED --add-exports javafx.base/com.sun.javafx.event=ALL-UNNAMED" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.FxApp" />
+      <item itemvalue="Application.AtariGo" />
+      <item itemvalue="Application.AtariGOApp" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.FxApp" />
+        <item itemvalue="Application.AtariGOApp" />
+        <item itemvalue="Application.AtariGo" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -83,6 +123,10 @@
       <workItem from="1746519109876" duration="352000" />
       <workItem from="1746737970736" duration="2501000" />
       <workItem from="1746740492959" duration="2404000" />
+      <workItem from="1746747313382" duration="107000" />
+      <workItem from="1746874739540" duration="3878000" />
+      <workItem from="1746878861929" duration="446000" />
+      <workItem from="1746879348617" duration="1442000" />
     </task>
     <servers />
   </component>

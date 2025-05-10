@@ -1,6 +1,11 @@
 import AtariGOUtils.{printBoard, readMyRandomStateToFile, writeMyRandomStateToFile}
 import AtariGo.Board
 import Stone._
+import javafx.application.Application
+import javafx.fxml.FXMLLoader
+import javafx.scene.{Parent, Scene}
+import javafx.stage.Stage
+
 import scala.util.Random
 
 object AtariGo extends App {
@@ -60,6 +65,9 @@ object AtariGo extends App {
     val up = play(board, player, res._1, lstOpenCoords)
     (up._1.get, res._2,up._2)
   }
+
+
+
 
 
   //TESTE DOS MÉTODOS
