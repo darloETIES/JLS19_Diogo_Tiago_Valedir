@@ -7,7 +7,7 @@ import javafx.stage.Stage
 class AtariGOApp extends Application{
   //Iniciar a GUI
   override def start(primaryStage: Stage): Unit={
-    val fxmlLoader = new FXMLLoader(getClass.getResource("chooseView.fxml"))
+    val fxmlLoader = new FXMLLoader(getClass.getResource("/views/chooseView.fxml"))
     val mainRootView : Parent = fxmlLoader.load()
     val scene = new Scene(mainRootView)
     primaryStage.setScene(scene)
