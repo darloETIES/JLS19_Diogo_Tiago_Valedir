@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c031a505-ecb4-45ce-9d39-b6287ba5f808" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/images/circle-15.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/pngtree-blank-round-sticker-template-png-image_4684569.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/gameOptionsView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/AtariGOController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/AtariGOController.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/ChooseViewController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ChooseViewController.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/AtariGoView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/atariGoView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/circle-15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/midBoardPositionImage.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/midBoardPositionImage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/pngtree-blank-round-sticker-template-png-image_4684569.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/atariGoView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/atariGoView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +22,7 @@
       <list>
         <option value="module-info" />
         <option value="FxmlFile" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -51,6 +51,7 @@
     &quot;git-widget-placeholder&quot;: &quot;UI&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Diogo/Desktop/ISCTEStuff/PPM/PROJ_PPM/JLS19_Diogo_Tiago_Valedir&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -68,6 +69,10 @@
       <recent name="C:\Users\Diogo\Desktop\ISCTEStuff\PPM\PROJ_PPM\JLS19_Diogo_Tiago_Valedir" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Diogo\Documents\ProjetoPPM\JLS19_Diogo_Tiago_Valedir\src\resources" />
+      <recent name="C:\Users\Diogo\Documents\ProjetoPPM\JLS19_Diogo_Tiago_Valedir" />
+      <recent name="C:\Users\Diogo\Documents\ProjetoPPM\JLS19_Diogo_Tiago_Valedir\images" />
+      <recent name="C:\Users\Diogo\Documents\ProjetoPPM\JLS19_Diogo_Tiago_Valedir\styles" />
       <recent name="C:\Users\Diogo\Desktop\ISCTEStuff\PPM\PROJ_PPM\JLS19_Diogo_Tiago_Valedir\images" />
     </key>
   </component>
@@ -139,6 +144,8 @@
       <workItem from="1747072141708" duration="114000" />
       <workItem from="1747072265140" duration="32000" />
       <workItem from="1747072305865" duration="1173000" />
+      <workItem from="1747086809234" duration="5658000" />
+      <workItem from="1747093546584" duration="352000" />
     </task>
     <servers />
   </component>

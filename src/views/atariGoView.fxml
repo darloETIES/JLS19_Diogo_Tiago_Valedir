@@ -3,10 +3,10 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AtariGOController">
+<StackPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AtariGOController">
     <BorderPane xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
         <center>
-            <GridPane fx:id="gridPaneGame" maxHeight="500.0" maxWidth="500.0" prefHeight="500.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+            <GridPane fx:id="gridPaneGame" maxHeight="500.0" maxWidth="500.0" prefHeight="500.0" prefWidth="500.0" style="-fx-background-image: url('/resources/woodenBackground.jpg');" BorderPane.alignment="CENTER">
                 <columnConstraints>
                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -26,45 +26,216 @@
                   <children>
                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                         <image>
+                           <Image url="@../../images/upLeftCornerBoardPositionImage.png" />
+                        </image>
+                     </ImageView>
+                  </children></StackPane>
+                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1">
+                  <children>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../images/upSideBoardPositionImage.png" />
+                        </image>
+                     </ImageView>
+                  </children></StackPane>
+
+
+                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2">
+                  <children>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../images/upSideBoardPositionImage.png" />
+                        </image>
+                     </ImageView>
+                  </children></StackPane>
+                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3">
+                  <children>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../images/upSideBoardPositionImage.png" />
+                        </image>
+                     </ImageView>
+                  </children></StackPane>
+                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4">
+                  <children>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../images/upRightCornerBoardPositionImage.png" />
+                        </image>
+                     </ImageView>
+                  </children></StackPane>
+
+                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="1">
+                  <children>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../images/leftSideBoardPositionImage.png" />
+                        </image>
+                     </ImageView>
+                  </children></StackPane>
+                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <children>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../images/midBoardPositionImage.png" />
+                        </image>
+                     </ImageView>
+                  </children></StackPane>
+                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <children>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
                            <Image url="@../../images/midBoardPositionImage.png" />
                         </image>
                      </ImageView>
                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../images/pngtree-blank-round-sticker-template-png-image_4684569.png" />
+                           <Image url="@../../images/whiteStone.png" />
                         </image>
                      </ImageView>
                   </children></StackPane>
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" />
+                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                  <children>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../images/midBoardPositionImage.png" />
+                        </image>
+                     </ImageView>
+                  </children></StackPane>
+                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                  <children>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../images/rightSideBoardPositionImage.png" />
+                        </image>
+                     </ImageView>
+                  </children></StackPane>
 
+                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="2">
+                  <children>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../images/leftSideBoardPositionImage.png" />
+                        </image>
+                     </ImageView>
+                  </children></StackPane>
+                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <children>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../images/midBoardPositionImage.png" />
+                        </image>
+                     </ImageView>
+                  </children></StackPane>
+                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <children>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../images/midBoardPositionImage.png" />
+                        </image>
+                     </ImageView>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../images/blackStone.png" />
+                        </image>
+                     </ImageView>
+                  </children></StackPane>
+                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                  <children>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../images/midBoardPositionImage.png" />
+                        </image>
+                     </ImageView>
+                  </children></StackPane>
+                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                  <children>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../images/rightSideBoardPositionImage.png" />
+                        </image>
+                     </ImageView>
+                  </children></StackPane>
 
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" />
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" />
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" />
+                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="3">
+                  <children>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../images/leftSideBoardPositionImage.png" />
+                        </image>
+                     </ImageView>
+                  </children></StackPane>
+                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <children>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../images/midBoardPositionImage.png" />
+                        </image>
+                     </ImageView>
+                  </children></StackPane>
+                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                  <children>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../images/midBoardPositionImage.png" />
+                        </image>
+                     </ImageView>
+                  </children></StackPane>
+                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                  <children>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../images/midBoardPositionImage.png" />
+                        </image></ImageView>
+                  </children></StackPane>
+                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                  <children>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../images/rightSideBoardPositionImage.png" />
+                        </image>
+                     </ImageView>
+                  </children></StackPane>
 
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="1" />
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="2" />
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="3" />
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="4" />
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="4">
+                  <children>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../images/downLeftCornerBoardPositionImage.png" />
+                        </image></ImageView>
+                  </children></StackPane>
+                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <children>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../images/downSideBoardPositionImage.png" />
+                        </image>
+                     </ImageView>
+                  </children></StackPane>
+                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                  <children>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../images/downSideBoardPositionImage.png" />
+                        </image>
+                     </ImageView>
+                  </children></StackPane>
+                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                  <children>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../images/downSideBoardPositionImage.png" />
+                        </image>
+                     </ImageView>
+                  </children></StackPane>
+                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                  <children>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../images/downRightCornerBoardPositionImage.png" />
+                        </image>
+                     </ImageView>
+                  </children></StackPane>
 
 
 
