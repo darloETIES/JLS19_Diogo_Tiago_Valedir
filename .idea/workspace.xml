@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c031a505-ecb4-45ce-9d39-b6287ba5f808" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controllers/ChooseViewController.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/circle-15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/pngtree-blank-round-sticker-template-png-image_4684569.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/gameOptionsView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AtariGOApp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/AtariGOApp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/AtariGoView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/AtariGoView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/chooseView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/chooseView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/AtariGOController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/AtariGOController.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/ChooseViewController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ChooseViewController.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/AtariGoView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/atariGoView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="module-info" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -39,31 +41,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.AtariGOApp.executor": "Run",
-    "Application.AtariGo.executor": "Run",
-    "Application.FxApp.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "UI",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Diogo/Documents/ProjetoPPM/JLS19_Diogo_Tiago_Valedir/javafx-sdk-21.0.7/lib",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.AtariGOApp.executor&quot;: &quot;Run&quot;,
+    &quot;Application.AtariGo.executor&quot;: &quot;Run&quot;,
+    &quot;Application.FxApp.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;UI&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Diogo/Desktop/ISCTEStuff/PPM/PROJ_PPM/JLS19_Diogo_Tiago_Valedir&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Diogo\Desktop\ISCTEStuff\PPM\PROJ_PPM\JLS19_Diogo_Tiago_Valedir" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Diogo\Desktop\ISCTEStuff\PPM\PROJ_PPM\JLS19_Diogo_Tiago_Valedir\images" />
     </key>
   </component>
   <component name="RunManager" selected="Application.FxApp">
@@ -126,7 +131,14 @@
       <workItem from="1746874739540" duration="3878000" />
       <workItem from="1746878861929" duration="446000" />
       <workItem from="1746879348617" duration="1442000" />
-      <workItem from="1746880886939" duration="2706000" />
+      <workItem from="1746880886939" duration="17223000" />
+      <workItem from="1747044642869" duration="3544000" />
+      <workItem from="1747069941386" duration="208000" />
+      <workItem from="1747070160375" duration="1925000" />
+      <workItem from="1747072102831" duration="30000" />
+      <workItem from="1747072141708" duration="114000" />
+      <workItem from="1747072265140" duration="32000" />
+      <workItem from="1747072305865" duration="1173000" />
     </task>
     <servers />
   </component>
