@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane fx:id="borderPaneOptions" maxHeight="500.0" maxWidth="300.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AtariGOController">
+<BorderPane fx:id="borderPaneOptions" maxHeight="400.0" maxWidth="350.0" styleClass="paneOptions" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AtariGOController">
    <bottom>
       <AnchorPane style="-fx-background-color: #313131;" BorderPane.alignment="CENTER">
          <children>

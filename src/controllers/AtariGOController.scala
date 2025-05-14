@@ -7,6 +7,9 @@ import javafx.scene.layout.{BorderPane, ColumnConstraints, GridPane, Pane, RowCo
 class AtariGOController {
 
   @FXML
+  private var gameborderPane:BorderPane = _
+
+  @FXML
   private var gridPaneGame:GridPane = _
 
 
@@ -18,15 +21,19 @@ class AtariGOController {
   private var playButton:Button = _
 
   //reinicia o jogo, limpando o tabuleiro
-  def resetGame(): Unit={
+  /*def resetGame(): Unit={
     gridPaneGame.getChildren.clear()
     gridPaneGame.getColumnConstraints.clear()
     gridPaneGame.getRowConstraints.clear()
-  }
+  }*/
 
 
   def onPlayButtonClicked(): Unit = {
-    if(gridPaneGame != null) resetGame()
+    //if(gridPaneGame != null) resetGame()
+
+    //ativa o painel do jogo e remove o efeito colocado anteriormente
+    //gameborderPane.setDisable(false)
+    //gameborderPane.setEffect(null)
 
     //fecha a janela modal das opcoes
     val parent = borderPaneOptions.getParent //irá obter o StackPane

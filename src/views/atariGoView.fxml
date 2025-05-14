@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<StackPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AtariGOController">
-    <BorderPane xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AtariGOController">
+    <BorderPane fx:id="gameborderPane" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
         <center>
-            <GridPane fx:id="gridPaneGame" maxHeight="500.0" maxWidth="500.0" prefHeight="500.0" prefWidth="500.0" style="-fx-background-image: url('/resources/woodenBackground.jpg');" BorderPane.alignment="CENTER">
+            <GridPane fx:id="gridPaneGame" alignment="CENTER" maxHeight="500.0" maxWidth="500.0" minHeight="450.0" minWidth="450.0" prefHeight="500.0" prefWidth="500.0" styleClass="gridGame" stylesheets="@../styles/styles.css" BorderPane.alignment="CENTER">
                 <columnConstraints>
                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -26,17 +29,27 @@
                   <children>
                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../images/upLeftCornerBoardPositionImage.png" />
+                           <Image url="@../resources/upLeftCornerBoardPositionImage.png" />
                         </image>
                      </ImageView>
+                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0.3, 0, 5);">
+                          <image>
+                              <Image url="@../resources/noStone.png" />
+                          </image>
+                      </ImageView>
                   </children></StackPane>
                     <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1">
                   <children>
                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../images/upSideBoardPositionImage.png" />
+                           <Image url="@../resources/upSideBoardPositionImage.png" />
                         </image>
                      </ImageView>
+                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0.3, 0, 5);">
+                          <image>
+                              <Image url="@../resources/noStone.png" />
+                          </image>
+                      </ImageView>
                   </children></StackPane>
 
 
@@ -44,53 +57,78 @@
                   <children>
                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../images/upSideBoardPositionImage.png" />
+                           <Image url="@../resources/upSideBoardPositionImage.png" />
                         </image>
                      </ImageView>
+                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0.3, 0, 5);">
+                          <image>
+                              <Image url="@../resources/noStone.png" />
+                          </image>
+                      </ImageView>
                   </children></StackPane>
                     <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3">
                   <children>
                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../images/upSideBoardPositionImage.png" />
+                           <Image url="@../resources/upSideBoardPositionImage.png" />
                         </image>
                      </ImageView>
+                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0.3, 0, 5);">
+                          <image>
+                              <Image url="@../resources/noStone.png" />
+                          </image>
+                      </ImageView>
                   </children></StackPane>
                     <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4">
                   <children>
                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../images/upRightCornerBoardPositionImage.png" />
+                           <Image url="@../resources/upRightCornerBoardPositionImage.png" />
                         </image>
                      </ImageView>
+                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0.3, 0, 5);">
+                          <image>
+                              <Image url="@../resources/noStone.png" />
+                          </image>
+                      </ImageView>
                   </children></StackPane>
 
                     <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="1">
                   <children>
                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../images/leftSideBoardPositionImage.png" />
+                           <Image url="@../resources/leftSideBoardPositionImage.png" />
                         </image>
                      </ImageView>
+                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0.3, 0, 5);">
+                          <image>
+                              <Image url="@../resources/noStone.png" />
+                          </image>
+                      </ImageView>
                   </children></StackPane>
                     <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                   <children>
                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../images/midBoardPositionImage.png" />
+                           <Image url="@../resources/midBoardPositionImage.png" />
                         </image>
                      </ImageView>
+                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0.3, 0, 5);">
+                          <image>
+                              <Image url="@../resources/noStone.png" />
+                          </image>
+                      </ImageView>
                   </children></StackPane>
                     <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                   <children>
                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../images/midBoardPositionImage.png" />
+                           <Image url="@../resources/midBoardPositionImage.png" />
                         </image>
                      </ImageView>
-                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0.3, 0, 5);">
                         <image>
-                           <Image url="@../../images/whiteStone.png" />
+                           <Image url="@../resources/noStone.png" />
                         </image>
                      </ImageView>
                   </children></StackPane>
@@ -98,45 +136,65 @@
                   <children>
                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../images/midBoardPositionImage.png" />
+                           <Image url="@../resources/midBoardPositionImage.png" />
                         </image>
                      </ImageView>
+                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0.3, 0, 5);">
+                          <image>
+                              <Image url="@../resources/noStone.png" />
+                          </image>
+                      </ImageView>
                   </children></StackPane>
                     <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
                   <children>
                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../images/rightSideBoardPositionImage.png" />
+                           <Image url="@../resources/rightSideBoardPositionImage.png" />
                         </image>
                      </ImageView>
+                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0.3, 0, 5);">
+                          <image>
+                              <Image url="@../resources/noStone.png" />
+                          </image>
+                      </ImageView>
                   </children></StackPane>
 
                     <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="2">
                   <children>
                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../images/leftSideBoardPositionImage.png" />
+                           <Image url="@../resources/leftSideBoardPositionImage.png" />
                         </image>
                      </ImageView>
+                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0.3, 0, 5);">
+                          <image>
+                              <Image url="@../resources/noStone.png" />
+                          </image>
+                      </ImageView>
                   </children></StackPane>
                     <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                   <children>
                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../images/midBoardPositionImage.png" />
+                           <Image url="@../resources/midBoardPositionImage.png" />
                         </image>
                      </ImageView>
+                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0.3, 0, 5);">
+                          <image>
+                              <Image url="@../resources/noStone.png" />
+                          </image>
+                      </ImageView>
                   </children></StackPane>
                     <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                   <children>
                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../images/midBoardPositionImage.png" />
+                           <Image url="@../resources/midBoardPositionImage.png" />
                         </image>
                      </ImageView>
-                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0.3, 0, 5);">
                         <image>
-                           <Image url="@../../images/blackStone.png" />
+                           <Image url="@../resources/noStone.png" />
                         </image>
                      </ImageView>
                   </children></StackPane>
@@ -144,97 +202,159 @@
                   <children>
                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../images/midBoardPositionImage.png" />
+                           <Image url="@../resources/midBoardPositionImage.png" />
                         </image>
                      </ImageView>
+                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0.3, 0, 5);">
+                          <image>
+                              <Image url="@../resources/noStone.png" />
+                          </image>
+                      </ImageView>
                   </children></StackPane>
                     <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
                   <children>
                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../images/rightSideBoardPositionImage.png" />
+                           <Image url="@../resources/rightSideBoardPositionImage.png" />
                         </image>
                      </ImageView>
+                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0.3, 0, 5);">
+                          <image>
+                              <Image url="@../resources/noStone.png" />
+                          </image>
+                      </ImageView>
                   </children></StackPane>
 
                     <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="3">
                   <children>
                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../images/leftSideBoardPositionImage.png" />
+                           <Image url="@../resources/leftSideBoardPositionImage.png" />
                         </image>
                      </ImageView>
+                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0.3, 0, 5);">
+                          <image>
+                              <Image url="@../resources/noStone.png" />
+                          </image>
+                      </ImageView>
                   </children></StackPane>
                     <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                   <children>
                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../images/midBoardPositionImage.png" />
+                           <Image url="@../resources/midBoardPositionImage.png" />
                         </image>
                      </ImageView>
+                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0.3, 0, 5);">
+                          <image>
+                              <Image url="@../resources/noStone.png" />
+                          </image>
+                      </ImageView>
                   </children></StackPane>
                     <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
                   <children>
                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../images/midBoardPositionImage.png" />
+                           <Image url="@../resources/midBoardPositionImage.png" />
                         </image>
                      </ImageView>
+                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0.3, 0, 5);">
+                          <image>
+                              <Image url="@../resources/noStone.png" />
+                          </image>
+                      </ImageView>
                   </children></StackPane>
                     <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
                   <children>
                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../images/midBoardPositionImage.png" />
-                        </image></ImageView>
+                           <Image url="@../resources/midBoardPositionImage.png" />
+                        </image>
+                     </ImageView>
+                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0.3, 0, 5);">
+                          <image>
+                              <Image url="@../resources/noStone.png" />
+                          </image>
+                      </ImageView>
                   </children></StackPane>
                     <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
                   <children>
                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../images/rightSideBoardPositionImage.png" />
+                           <Image url="@../resources/rightSideBoardPositionImage.png" />
                         </image>
                      </ImageView>
+                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0.3, 0, 5);">
+                          <image>
+                              <Image url="@../resources/noStone.png" />
+                          </image>
+                      </ImageView>
                   </children></StackPane>
 
                     <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="4">
                   <children>
                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../images/downLeftCornerBoardPositionImage.png" />
-                        </image></ImageView>
+                           <Image url="@../resources/downLeftCornerBoardPositionImage.png" />
+                        </image>
+                     </ImageView>
+                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0.3, 0, 5);">
+                          <image>
+                              <Image url="@../resources/noStone.png" />
+                          </image>
+                      </ImageView>
                   </children></StackPane>
                     <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                   <children>
                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../images/downSideBoardPositionImage.png" />
+                           <Image url="@../resources/downSideBoardPositionImage.png" />
                         </image>
                      </ImageView>
+                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0.3, 0, 5);">
+                          <image>
+                              <Image url="@../resources/noStone.png" />
+                          </image>
+                      </ImageView>
                   </children></StackPane>
                     <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
                   <children>
                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../images/downSideBoardPositionImage.png" />
+                           <Image url="@../resources/downSideBoardPositionImage.png" />
                         </image>
                      </ImageView>
+                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0.3, 0, 5);">
+                          <image>
+                              <Image url="@../resources/noStone.png" />
+                          </image>
+                      </ImageView>
                   </children></StackPane>
                     <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
                   <children>
                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../images/downSideBoardPositionImage.png" />
+                           <Image url="@../resources/downSideBoardPositionImage.png" />
                         </image>
                      </ImageView>
+                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0.3, 0, 5);">
+                          <image>
+                              <Image url="@../resources/noStone.png" />
+                          </image>
+                      </ImageView>
                   </children></StackPane>
                     <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
                   <children>
                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../images/downRightCornerBoardPositionImage.png" />
+                           <Image url="@../resources/downRightCornerBoardPositionImage.png" />
                         </image>
                      </ImageView>
+                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0.3, 0, 5);">
+                          <image>
+                              <Image url="@../resources/noStone.png" />
+                          </image>
+                      </ImageView>
                   </children></StackPane>
 
 
@@ -249,10 +369,96 @@
             </GridPane>
         </center>
         <top>
-            <AnchorPane prefHeight="63.0" prefWidth="600.0" style="-fx-background-color: #c2c2c2;" BorderPane.alignment="CENTER" />
+            <BorderPane prefHeight="75.0" style="-fx-background-color: #c2c2c2;" BorderPane.alignment="CENTER">
+                <left>
+                    <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <children>
+                            <Label prefHeight="35.0" prefWidth="89.0" text="White" textAlignment="CENTER">
+                                <graphic>
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../resources/whiteStone.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                                <font>
+                                    <Font size="16.0" />
+                                </font>
+                            </Label>
+                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                <children>
+                                    <Label prefHeight="18.0" prefWidth="33.0" text="Caps:" />
+                                    <Label text="0" />
+                                </children>
+                            </HBox>
+                        </children>
+                        <padding>
+                            <Insets top="5.0" />
+                        </padding>
+                    </VBox>
+                </left>
+                <right>
+                    <VBox alignment="CENTER" layoutX="10.0" layoutY="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <children>
+                            <Label contentDisplay="RIGHT" prefHeight="35.0" prefWidth="76.0" text="Black" textAlignment="CENTER">
+                                <graphic>
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../resources/blackStone.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                                <font>
+                                    <Font size="16.0" />
+                                </font>
+                            </Label>
+                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                <children>
+                                    <Label prefHeight="18.0" prefWidth="33.0" text="Caps:" />
+                                    <Label text="0" />
+                                </children>
+                            </HBox>
+                        </children>
+                        <padding>
+                            <Insets top="5.0" />
+                        </padding>
+                    </VBox>
+                </right>
+                <center>
+                    <VBox alignment="CENTER" spacing="5.0" BorderPane.alignment="CENTER">
+                        <Label fx:id="timerLabel" text="15" textAlignment="CENTER" textFill="#333333">
+                            <font>
+                                <Font name="Arial Black" size="24.0" />
+                            </font>
+                        </Label>
+                        <ProgressBar fx:id="timerBar" prefWidth="150.0" progress="0.43" styleClass="timerBar" stylesheets="@../styles/styles.css" />
+                    </VBox>
+                </center>
+            </BorderPane>
         </top>
         <bottom>
-            <AnchorPane prefHeight="59.0" prefWidth="600.0" style="-fx-background-color: #c2c2c2;" BorderPane.alignment="CENTER" />
+            <BorderPane prefHeight="79.0" prefWidth="600.0" style="-fx-background-color: #c2c2c2;" BorderPane.alignment="CENTER">
+            <left>
+               <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                  <children>
+                     <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="undoBtn" stylesheets="@../styles/styles.css">
+                        <graphic>
+                           <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../resources/undoImg.png" />
+                              </image>
+                           </ImageView>
+                        </graphic></Button>
+                     <Label text="3" />
+                  </children>
+               </VBox>
+            </left>
+            <right>
+               <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                  <children>
+                     <Button mnemonicParsing="false" text="New Game" />
+                  </children></VBox>
+            </right></BorderPane>
         </bottom>
     </BorderPane>
 </StackPane>

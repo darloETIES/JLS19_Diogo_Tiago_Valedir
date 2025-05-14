@@ -1,0 +1,38 @@
+.gridGame {
+    -fx-background-image: url('/resources/woodenBackground.jpg');
+    -fx-background-repeat: stretch;
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+
+    -fx-border-image-slice: 30 fill;
+    -fx-border-image-width: 2px;
+    -fx-border-image-repeat: stretch;
+
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 20, 0.1, 0, 6);
+}
+
+.paneOptions{
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 20, 0.1, 0, 6);
+    -fx-background-radius: 20px;
+}
+
+.timerBar {
+    -fx-accent: white;
+    -fx-control-inner-background: #e0e0e0; /* (Não funciona para ProgressBar) */
+}
+
+.timerBar .track {
+    -fx-background-color: #ddd; /* Cor do fundo da barra */
+    -fx-background-radius: 5;
+    -fx-padding: 2;
+}
+
+.timerBar .bar {
+    -fx-background-insets: 0;
+    -fx-background-radius: 5;
+}
+
+.undoBtn{
+    -fx-background-radius: 50%;
+    -fx-border-radius: 50%;
+}
