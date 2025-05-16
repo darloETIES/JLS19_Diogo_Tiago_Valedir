@@ -6,7 +6,7 @@ import javafx.scene.{Node, Parent, Scene}
 import javafx.scene.control.Button
 import javafx.scene.effect.GaussianBlur
 import javafx.scene.layout.StackPane
-import javafx.stage.Stage
+import javafx.stage.{Modality, Stage}
 
 class ChooseViewController {
 
@@ -16,37 +16,43 @@ class ChooseViewController {
   @FXML
   private var buttonTUI: Button = _
 
+
   def onButtonGUIClicked(): Unit={
 
     //Fecha a janela atual (chooseView)
     buttonGUI.getScene.getWindow.hide()
 
-    //carrega a Scene com uma Scene modal embutida (2 Scenes numa Stage)
-    val AtariGOStage: Stage = new Stage()
+    //carrega a janela do jogo
+    val atariGOStage: Stage = new Stage()
     val fxmlLoader = new FXMLLoader(getClass.getResource("/views/atariGoView.fxml"))
     val mainViewRoot: Parent = fxmlLoader.load()
 
-    //como iremos ter o menu de opcoes primeiro, desabilitamos o painel do jogo
-    //mainViewRoot.setDisable(true)
-    //colocamos um desfoque para concentrar a atencao no painel de opcoes
-    //val blur = new GaussianBlur(10)
-    //mainViewRoot.setEffect(blur)
+    //obter o controller do jogo
+    val atariController = fxmlLoader.getController[AtariGOController]
 
     val scene = new Scene(mainViewRoot)
-    AtariGOStage.setScene(scene)
-    AtariGOStage.show()
+    atariGOStage.setScene(scene)
+    atariGOStage.show()
 
 
 
-    //carrega a janela modal das opcoes do jogo
-    val gameOptionsModalLoader = new FXMLLoader(getClass.getResource("/views/gameOptionsView.fxml"))
-    val modalContent:Parent = gameOptionsModalLoader.load()
+    //carrega a janela modal das opcoes
+    val optionsStage: Stage = new Stage()
+    val modalFxmlLoader = new FXMLLoader(getClass.getResource("/views/gameOptionsView.fxml"))
+    val modalViewRoot: Parent = modalFxmlLoader.load()
 
-    val rootPane = mainViewRoot.asInstanceOf[StackPane]
-    rootPane.getChildren.add(modalContent)
+    //obter o controller do jogo
+    val optionsController = modalFxmlLoader.getController[OptionsViewController]
 
-    //ativa o painel de opcoes
-    //rootPane.setDisable(false)
-    //rootPane.setEffect(null)
+    val modalScene = new Scene(modalViewRoot)
+    optionsStage.setScene(modalScene)
+
+    optionsStage.initModality(Modality.WINDOW_MODAL)
+    optionsStage.initOwner(atariGOStage.getScene.getWindow)
+    optionsStage.show()
+
+
+    optionsController.setAtariGOController(atariController)
+
   }
 }

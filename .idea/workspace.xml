@@ -5,21 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c031a505-ecb4-45ce-9d39-b6287ba5f808" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/resources/noStone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/undoImg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controllers/OptionsViewController.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/blackStone.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/blackStone.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/downLeftCornerBoardPositionImage.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/downLeftCornerBoardPositionImage.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/downRightCornerBoardPositionImage.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/downRightCornerBoardPositionImage.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/downSideBoardPositionImage.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/downSideBoardPositionImage.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/leftSideBoardPositionImage.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/leftSideBoardPositionImage.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/midBoardPositionImage.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/midBoardPositionImage.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/rightSideBoardPositionImage.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/rightSideBoardPositionImage.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/upLeftCornerBoardPositionImage.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/upLeftCornerBoardPositionImage.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/upRightCornerBoardPositionImage.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/upRightCornerBoardPositionImage.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/upSideBoardPositionImage.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/upSideBoardPositionImage.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/whiteStone.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/whiteStone.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/AtariGOController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/AtariGOController.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/ChooseViewController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ChooseViewController.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/atariGoView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/atariGoView.fxml" afterDir="false" />
@@ -54,29 +41,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.AtariGOApp.executor&quot;: &quot;Run&quot;,
-    &quot;Application.AtariGo.executor&quot;: &quot;Run&quot;,
-    &quot;Application.FxApp.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;UI&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Diogo/Desktop/ISCTEStuff/PPM/PROJ_PPM/JLS19_Diogo_Tiago_Valedir&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.AtariGOApp.executor": "Run",
+    "Application.AtariGo.executor": "Run",
+    "Application.FxApp.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "UI",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Diogo/Desktop/ISCTEStuff/PPM/week4",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Diogo\Desktop\ISCTEStuff\PPM\PROJ_PPM\JLS19_Diogo_Tiago_Valedir\src\resources" />
@@ -162,7 +149,9 @@
       <workItem from="1747093546584" duration="352000" />
       <workItem from="1747124505044" duration="3072000" />
       <workItem from="1747140244442" duration="13109000" />
-      <workItem from="1747216657322" duration="4254000" />
+      <workItem from="1747216657322" duration="4327000" />
+      <workItem from="1747304086517" duration="2401000" />
+      <workItem from="1747416270801" duration="11732000" />
     </task>
     <servers />
   </component>

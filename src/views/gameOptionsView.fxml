@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane fx:id="borderPaneOptions" maxHeight="400.0" maxWidth="350.0" styleClass="paneOptions" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AtariGOController">
+<BorderPane fx:id="borderPaneOptions" prefHeight="346.0" prefWidth="300.0" styleClass="paneOptions" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.OptionsViewController">
    <bottom>
       <AnchorPane style="-fx-background-color: #313131;" BorderPane.alignment="CENTER">
          <children>
@@ -30,13 +30,13 @@
       </AnchorPane>
    </top>
    <center>
-      <GridPane alignment="BOTTOM_CENTER" style="-fx-background-color: f1f1f1;" BorderPane.alignment="CENTER">
+      <GridPane alignment="CENTER" style="-fx-background-color: f1f1f1;" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="89.4" minHeight="0.0" prefHeight="32.2" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="81.39999999999998" minHeight="10.0" prefHeight="31.799999999999997" vgrow="SOMETIMES" />
+          <RowConstraints fillHeight="false" maxHeight="89.4" minHeight="0.0" prefHeight="24.799999999999997" vgrow="NEVER" />
+          <RowConstraints maxHeight="81.39999999999998" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="81.39999999999998" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="87.19998474121093" minHeight="10.0" prefHeight="57.80000000000001" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="25.0" minHeight="0.5999999999999943" prefHeight="23.0" />
@@ -44,9 +44,9 @@
         </rowConstraints>
          <children>
             <Label text="Player color" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
-            <FlowPane alignment="CENTER" hgap="5.0" prefWidth="300.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <FlowPane alignment="CENTER" hgap="5.0" prefHeight="30.0" prefWidth="300.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <children>
-                  <RadioButton mnemonicParsing="false" text="Black">
+                  <RadioButton fx:id="blackRadio" mnemonicParsing="false" text="Black">
                      <FlowPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </FlowPane.margin>
@@ -54,7 +54,7 @@
                         <ToggleGroup fx:id="radioPlayerColorBtns" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" selected="true" text="White" toggleGroup="$radioPlayerColorBtns">
+                  <RadioButton fx:id="whiteRadio" mnemonicParsing="false" selected="true" text="White" toggleGroup="$radioPlayerColorBtns">
                      <FlowPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </FlowPane.margin>
@@ -66,7 +66,7 @@
                   <Insets left="10.0" right="10.0" />
                </GridPane.margin></Slider>
             <Label alignment="CENTER" text="Difficulty" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
-            <Slider blockIncrement="1.0" majorTickUnit="1.0" max="6.0" maxWidth="600.0" min="1.0" minorTickCount="0" showTickLabels="true" snapToTicks="true" value="1.0" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="5" GridPane.valignment="TOP">
+            <Slider blockIncrement="1.0" majorTickUnit="1.0" max="3.0" maxWidth="600.0" min="1.0" minorTickCount="0" showTickLabels="true" snapToTicks="true" value="1.0" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="5" GridPane.valignment="TOP">
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" />
                </GridPane.margin></Slider>

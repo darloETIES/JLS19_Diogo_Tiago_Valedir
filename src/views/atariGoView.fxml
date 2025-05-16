@@ -441,7 +441,7 @@
             <left>
                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                   <children>
-                     <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="undoBtn" stylesheets="@../styles/styles.css">
+                     <Button fx:id="undoBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="undoBtn" stylesheets="@../styles/styles.css">
                         <graphic>
                            <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                               <image>
@@ -456,7 +456,7 @@
             <right>
                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                   <children>
-                     <Button mnemonicParsing="false" text="New Game" />
+                     <Button fx:id="newGameBtn" mnemonicParsing="false" text="New Game" />
                   </children></VBox>
             </right></BorderPane>
         </bottom>
