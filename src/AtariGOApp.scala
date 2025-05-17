@@ -1,17 +1,14 @@
 import AtariGo.{args, getClass}
+import controllers.{AtariGOController, OptionsViewController}
 import javafx.application.Application
 import javafx.fxml.FXMLLoader
 import javafx.scene.{Parent, Scene}
-import javafx.stage.Stage
+import javafx.stage.{Modality, Stage}
 
 class AtariGOApp extends Application{
   //Iniciar a GUI
   override def start(primaryStage: Stage): Unit={
-    val fxmlLoader = new FXMLLoader(getClass.getResource("/views/chooseView.fxml"))
-    val mainRootView : Parent = fxmlLoader.load()
-    val scene = new Scene(mainRootView)
-    primaryStage.setScene(scene)
-    primaryStage.show()
+    guiutils.GameLauncher.launchNewGame()
   }
 }
 

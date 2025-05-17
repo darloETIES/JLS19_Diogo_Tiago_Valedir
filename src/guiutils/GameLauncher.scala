@@ -1,27 +1,13 @@
-package controllers
+package guiutils
 
-import javafx.event.ActionEvent
-import javafx.fxml.{FXML, FXMLLoader}
-import javafx.scene.{Node, Parent, Scene}
-import javafx.scene.control.Button
-import javafx.scene.effect.GaussianBlur
-import javafx.scene.layout.StackPane
+import controllers.{AtariGOController, OptionsViewController}
+import javafx.fxml.FXMLLoader
+import javafx.scene.{Parent, Scene}
 import javafx.stage.{Modality, Stage}
 
-class ChooseViewController {
-
-  @FXML
-  private var buttonGUI: Button = _
-
-  @FXML
-  private var buttonTUI: Button = _
-
-
-  def onButtonGUIClicked(): Unit={
-
-    //Fecha a janela atual (chooseView)
-    buttonGUI.getScene.getWindow.hide()
-
+//objeto usado para começar um novo jogo
+object GameLauncher {
+  def launchNewGame(): Unit ={ //metodo para iniciar o AtariGO atraves da GUI
     //carrega a janela do jogo
     val atariGOStage: Stage = new Stage()
     val fxmlLoader = new FXMLLoader(getClass.getResource("/views/atariGoView.fxml"))
@@ -33,6 +19,7 @@ class ChooseViewController {
     val scene = new Scene(mainViewRoot)
     atariGOStage.setScene(scene)
     atariGOStage.show()
+    atariGOStage.setTitle("Atari GO")
 
 
 
@@ -54,5 +41,10 @@ class ChooseViewController {
 
     optionsController.setAtariGOController(atariController)
 
+    //event handler
+    //caso ocorra o fecho da janela de opcoes, fecha o jogo
+    optionsStage.setOnCloseRequest( _ => {
+      atariGOStage.close()
+    })
   }
 }
