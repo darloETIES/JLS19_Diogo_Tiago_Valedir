@@ -25,8 +25,15 @@ object AtariGo extends App {
     newLstOpenCoords
   }
 
+  //devolve a cor de uma posicao
+  def findStone(board:Board,coord:Coord2D):Stone ={
+    board(coord._1)(coord._2)
+  }
+
   //T1
   def randomMove(lstOpenCoords:List[Coord2D], rand:MyRandom):(Coord2D, MyRandom) ={
+    if (lstOpenCoords.isEmpty)
+      throw new IllegalArgumentException("A lista com coordenadas livres está vazia!")
     val (ind:Int, newRandom:MyRandom) = rand.nextInt(lstOpenCoords.length) //gerar um indice aleatorio dentro do vetor de coordenadas disponiveis e um novo estado do MyRandom
     val randCoord = lstOpenCoords(ind)
     val result = (randCoord,newRandom)
@@ -36,7 +43,7 @@ object AtariGo extends App {
   //T2
   def play(board:Board, player: Stone, coord:Coord2D, lstOpenCoords:List[Coord2D]):(Option[Board], List[Coord2D]) = {
     //iremos validar se é possível jogar na coordenada fornecida (coord)
-    if(lstOpenCoords.contains(coord)){
+    if(isValid(board,player,coord, lstOpenCoords)){
 
       //List.updated(pos a trocar, elem) -> No nosso caso acedemos à linha a trocar (coord._1) e depois percorremos as colunas (coord._2).
       //Após isso é substituido o elemento anterior por player
@@ -54,6 +61,57 @@ object AtariGo extends App {
 
   }
 
+  //metodo para encontrar os vizinhos de uma coordenada
+  def findNeighbors(coord:Coord2D):List[Option[Coord2D]] ={
+
+    //val nbr = new java.util.HashMap[Coord2D]
+
+    val up:Coord2D = (coord._1 + 1,coord._2)
+    val down:Coord2D=(coord._1 - 1, coord._2)
+    val left:Coord2D=(coord._1,coord._2-1)
+    val right:Coord2D=(coord._1,coord._2+1)
+
+    //[up,down,left,right]
+    val aux_nbrs:List[Coord2D] = List( up , down ,left ,right)
+    //aux_nbrs 
+
+
+    //verificar se os vizinhos estao numa posicao que existe
+    def onBoard(c:Coord2D):Boolean={
+      c._1>=0 && c._1<board.length && c._2>=0 && c._2<board.length
+    }
+
+    aux_nbrs.map{
+      c => if (onBoard(c)) Some(c)
+      else None
+    }
+
+
+  }
+
+  //metodo auxiliar para verificar se uma posição é livre e tem liberdade (logo se e possivel jogar la)
+  def isValid(board:Board, player:Stone,coord:Coord2D,lstOpenCoords:List[Coord2D]):Boolean ={
+    //verificar primeiro se a posicao esta livre para verificar se esta apta a ser preenchida
+    if(lstOpenCoords.contains(coord)){ // verificar se tem liberdade para poder ser ou nao preenchida
+      val lstNeighbors:List[Coord2D] = findNeighbors(coord)
+      //caso 1 - tem pelo menos um vizinho livre e por isso tem liberdade
+      //verificar se os vizinhos sao posicoes livres de forma a ver existe pelo menos um vizinho livre, nao e preciso verificar se a posicao e valida pois posicoes invalidas nao existem no lstopencoords
+      if(lstOpenCoords.contains(lstNeighbors(0)) || lstOpenCoords.contains(lstNeighbors(1)) || lstOpenCoords.contains(lstNeighbors(2)) || lstOpenCoords.contains(lstNeighbors(3))){
+        true
+      }
+      else{ //se n houver vizinhos livres averiguar se sao todos do adversario pois se forem so e possivel jogar ai se for para capturar
+        if(true/*verificar se todas as pecas vizinhas sao todas adversarias*/){
+          //se forem todas adversarias ver se jogando ai a peça se captura
+          false
+        }else{
+          //se nao forem todas adversarias entao nao esta encurralado de todo e pode jogar
+          false
+        }
+
+      }
+    }
+    else false //se a posicao nao estiver livre entao e impossivel jogar la
+  }
   //T3
   def playRandomly(board: Board, r: MyRandom, player: Stone, lstOpenCoords: List[Coord2D], f: (List[Coord2D], MyRandom) => (Coord2D, MyRandom)): (Board, MyRandom, List[Coord2D]) = {
     val res = f(lstOpenCoords, r)
