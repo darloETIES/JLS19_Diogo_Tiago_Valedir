@@ -61,6 +61,12 @@ object AtariGo extends App {
     (up._1.get, res._2,up._2)
   }
 
+  //T6 - ideia apenas!! Teriamos que ter a case class com GameState
+  //def verifyVictory(nCapsToWin:Int, nCaps:Int, player:Stone): Boolean = {
+  //  if(nCaps >= nCapsToWin) true
+  //  else false
+  //}
+
 
   //TESTE DOS MÉTODOS
   val r = MyRandom(readMyRandomStateToFile())
