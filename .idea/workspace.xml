@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c031a505-ecb4-45ce-9d39-b6287ba5f808" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/guiutils/GameLauncher.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AtariGOApp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/AtariGOApp.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/AtariGOController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/AtariGOController.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/ChooseViewController.scala" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/atariGoView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/atariGoView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/chooseView.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +149,7 @@
       <workItem from="1747216657322" duration="4327000" />
       <workItem from="1747304086517" duration="2401000" />
       <workItem from="1747416270801" duration="11732000" />
-      <workItem from="1747484194717" duration="7428000" />
+      <workItem from="1747484194717" duration="21806000" />
     </task>
     <servers />
   </component>

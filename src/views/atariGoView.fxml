@@ -128,7 +128,7 @@
                      </ImageView>
                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0.3, 0, 5);">
                         <image>
-                           <Image url="@../resources/blackStone.png" />
+                           <Image url="@../resources/noStone.png" />
                         </image>
                      </ImageView>
                   </children></StackPane>
