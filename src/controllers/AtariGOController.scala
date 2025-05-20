@@ -72,20 +72,27 @@ class AtariGOController {
 
             val noStoneURL = getClass.getResource("/resources/noStone.png").toString
 
+
             //caso a imagem seja noStone.png (não tem stone)
             if(stoneImageView.getImage.getUrl == noStoneURL){
-
               //event handling
-              //clicar na celula da grid
-              stoneImageView.setOnMouseClicked { _ =>
-                stoneImageView.setImage(new Image(imagePath))
-                stoneImageView.setOpacity(1)
-
-              }
-
               //fazer hover (passar o cursosr por cima)
               stoneImageView.setOnMouseEntered { _ =>
+
+                val coord2DtoPlay = (Option(GridPane.getRowIndex(stackPane)).getOrElse(0), Option(GridPane.getColumnIndex(stackPane)).getOrElse(0))
+                //após saber a coord, fazer aqui um if que cobre todo o codigo abaixo, de forma a verificar a validade da jogada
+                //ex: if(isValid())
+                //assim posso fazer depois o play(...) so depois de ter verificado
                 hoverImageView.setOpacity(0.4)
+                println(coord2DtoPlay)
+
+                //clicar na celula da grid
+                stoneImageView.setOnMouseClicked { _ =>
+                  stoneImageView.setImage(new Image(imagePath))
+                  stoneImageView.setOpacity(1)
+
+
+                }
               }
 
               //cancelar o hover (sair com o cursor da celula da grid)
