@@ -21,7 +21,7 @@ object AtariGOUtils {
     print("=")
     println("\t3. Define number of pieces to capture (current: " + stonesToWin + ")\t\t\t=")
     print("=")
-    println("\t4. Define maximum time for each move (current: " + timeLimit + " seconds)\t=")
+    println("\t4. Define maximum time for each move (current: " + timeLimit / 1000 + " seconds)\t=") //de forma a apresentar o valor em segundos
     print("=")
     println("\t5. Define difficulty level (current: " + difficultyLevel + ")\t\t\t\t\t\t=")
     print("=")

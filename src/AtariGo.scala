@@ -6,10 +6,6 @@ object AtariGo {
 
   type Board = List[List[Stone]]
   type Coord2D = (Int, Int) //(row, column)
-  //private var gameHistory: List[GameState] = List() !!!!!!!!!!!
-  //var computerMove: Coord2D = (0, 0) !!!!!!!!!!!
-  //var playerCapture = 0 !!!!!!!!!!!
-  //var computerCapture = 0 !!!!!!!!!!!
 
   //cria um novo tabuleiro de tamanho size X size
   def createNewBoard(size:Int):Board = {
@@ -72,20 +68,6 @@ object AtariGo {
       case List(x) => Some((x, Nil)) //o historico tem 1 elemento, logo retira-o, devolvendo como o GameState a ser jogado e esvazia o historico
       case x::xs => Some((x, xs)) //o historico tem diversos elementos, logo retira-o da mesma forma como o anterior, e devolve a lista de GamesStates restantes
     }
-    /*if (gameHistory.size == 1) { !!!!!!!!!!!!
-      None
-    } else {
-      gameHistory = gameHistory.tail
-      val state = gameHistory.head
-      Some(state)
-    } !!!!!!!!!!! */
-
-
-  }
-
-  def saveGameState(gameState: GameState, history: List[GameState]): List[GameState] = {
-    //gameHistory = gameState :: gameHistory !!!!!!!
-    gameState :: history
   }
 
   def startTime(): Long = {
@@ -93,7 +75,8 @@ object AtariGo {
   }
 
   def timeUp(startTime: Long, timeLimit: Int): Boolean = {
-    (System.currentTimeMillis() / 1000) - startTime > timeLimit
+    val elapsedMillis = System.currentTimeMillis() - startTime
+    elapsedMillis > timeLimit
   }
 
 }
