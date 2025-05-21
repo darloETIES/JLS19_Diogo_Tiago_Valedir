@@ -25,7 +25,7 @@ object AtariGOUtils {
     print("=")
     println("\t5. Define difficulty level (current: " + difficultyLevel + ")\t\t\t\t\t\t=")
     print("=")
-    println("\t6. Define the player color (current: " + playerColor.toString + ")\t\t\t\t\t\t=")
+    println("\t6. Define the player color (current: " + playerColor.toString + ")\t\t\t\t\t=")
     print("=")
     println("\t7. Exit\t\t\t\t\t\t\t\t\t\t\t\t\t\t=")
     println("= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =")
@@ -63,6 +63,10 @@ object AtariGOUtils {
     println(cause)
   }
 
+  def printInfo(str: String):Unit = {
+    println(str)
+  }
+
 
   //T4
   private def auxBoard(lst: List[Stone]): String = lst match {
@@ -97,6 +101,9 @@ object AtariGOUtils {
     seed
   }
 
+
+
+  def createNewMyRandom(r: MyRandom) :MyRandom = r.nextInt(Int.MaxValue)._2 //com Int.MaxValue garante a diversidade na seed
 
 
 }

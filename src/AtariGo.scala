@@ -61,14 +61,9 @@ object AtariGo {
   //T3
   def playRandomly(board: Board, r: MyRandom, player: Stone, lstOpenCoords: List[Coord2D], f: (List[Coord2D], MyRandom) => (Coord2D, MyRandom)): (Board, MyRandom, List[Coord2D]) = {
     val res = f(lstOpenCoords, r)
-    //computerMove(res._1) !!!!!!!!
     val up = play(board, player, res._1, lstOpenCoords) //REVER, pois tera que ter também a verificacao
     (up._1.get, res._2,up._2)
   }
-
-  //def computerMove(coord: Coord2D): Unit = { !!!!!!!!
-  //  computerMove = coord  !!!!!!!!
-  //} !!!!!!!!
 
   //metodo para devolver o GameState anterior e a lista de GameState alterada (lista que não tem o GameState atual, pois voltamos para trás)
   def undo(history: List[GameState]): Option[(GameState,List[GameState])] = {

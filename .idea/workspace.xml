@@ -5,18 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c031a505-ecb4-45ce-9d39-b6287ba5f808" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/GameState.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MainTUI.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AtariGO.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/AtariGo.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AtariGOApp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainGUI.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AtariGOUtils.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/AtariGOUtils.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/AtariGOController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/AtariGOController.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AtariGo.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/AtariGo.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameState.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameState.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainTUI.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainTUI.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../JLS19_Diogo_Tiago_Valedir\exportToHTML" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -47,11 +48,12 @@
     "Application.AtariGOApp.executor": "Run",
     "Application.AtariGo.executor": "Run",
     "Application.FxApp.executor": "Run",
+    "Application.MainTUI.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "UI",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Diogo/OneDrive/Ambiente de Trabalho/JLS19/JLS19/Atari",
+    "last_opened_file_path": "C:/Users/Diogo/Desktop/ISCTEStuff/PPM/PROJETO_PPM/PPM_GrupoJLS19_AtariGo",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",

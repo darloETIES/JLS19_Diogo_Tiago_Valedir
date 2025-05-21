@@ -10,7 +10,7 @@ case class GameState(
                       stonesToWin: Int,
                       timeLimit: Int,
                       difficultyLevel: Int,
-                      playerColor: Stone,
-                      r: MyRandom
+                      playerColor: Stone, //identifica a cor do jogador humano
+                      currentPlayer: Stone //identifica o jogador atual (humano ou "bot")
                     )
 
