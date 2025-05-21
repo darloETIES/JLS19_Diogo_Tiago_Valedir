@@ -261,7 +261,7 @@ object MainTUI extends App { //POR ATUALIZAR
         val startTimer = startTime()
 
         //ler input do utilizador
-        val input = AtariGOUtils.promptStr("Enter in the console: \n - Your move (row, col) \n - Restart \n - Undo \n - Exit")
+        val input = AtariGOUtils.promptStr("Enter one option in the console: \n - Your move (row, col) \n - Restart \n - Undo \n - Exit")
 
         //gerar um novo MyRandom
         val newR = AtariGOUtils.createNewMyRandom(r)
@@ -316,8 +316,6 @@ object MainTUI extends App { //POR ATUALIZAR
                 val coord = input.split(",").map(_.toInt)
                 val coord2D: Coord2D = (coord(0), coord(1))
 
-                //verifica a cor do jogador e atribui a contraria ao "bot"
-                val computerPlayerColor = if (gameState.playerColor == Stone.Black) Stone.White else Stone.Black
 
                 //vez do jogador humano
                 //FALTA VERIFICACOES DE LIBERDADES, CAPTURAS,..
