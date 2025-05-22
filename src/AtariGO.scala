@@ -186,12 +186,14 @@ object AtariGo extends App {
 
     //caso em que a posicao que se quer jogar esta rodeada por adversarios
     val rivalNeighbors:Int= neighbors.count(x => (board(x._1)(x._2).equals(rivalStone) ))
-    if(rivalNeighbors == neighbors.length){ // se a posicao que se quer jogar tiver rodeada de rivais so se pode jogar se capturar
+    //SO ESTA IMPLEMENTADO PARA O CASO SIMPLES DE QUERER CAPTURAR ALGUEM QUE RODEIA DIRETAMENTE A COORD PRETENDIDA
+
+    if(rivalNeighbors == neighbors.length) { // se a posicao que se quer jogar tiver rodeada de rivais so se pode jogar se capturar
       //se estiver cercado temos de verificar se colocando a peça se pode capturar o "grupo" que a cerca
       canCaptureNeighbors(board,neighbors,player,rivalStone,coord)
+    } else false
 
-    }
-    else true
+
   }
 
     def canCaptureNeighbors(board:Board, neighbors:List[Coord2D],player:Stone,neighborStone:Stone,coord:Coord2D):Boolean ={
@@ -229,6 +231,28 @@ object AtariGo extends App {
     val up = play(board, player, res._1, lstOpenCoords)
     (up._1.get, res._2,up._2)
   }
+
+  //T5
+  def captureGroupStones(board: Board, player: Stone, coord:Coord2D):(Board, Int) ={
+        val group:List[Coord2D] = findGroup(board,coord,player)
+        def canSomeoneCapture(auxGroup:List[Coord2D], toRemove:List[Coord2D], nrOfCaptures:Int):(Board, Int)= auxGroup match{
+          case Nil => (board, nrOfCaptures)
+          case h::t =>{
+            val neighbors:List[Coord2D] = findNeighbors(h).flatten
+            //ver quem eq e rival
+            //para cada rival ver se e possivel capturar (por enquanto so caso simples de rodear esse rival
+            //para cada rival q possa ser capturado incrementar o int e subs as pecas a remover por empty
+            def neighborCapture(auxnei:List[Coord2D]):List[Coord2D]={
+
+            }
+
+          }
+
+        }
+
+  }
+
+
 
 
   //TESTE DOS MÉTODOS

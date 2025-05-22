@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c031a505-ecb4-45ce-9d39-b6287ba5f808" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lastMyRandom" beforeDir="false" afterPath="$PROJECT_DIR$/lastMyRandom" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AtariGO.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/AtariGO.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,7 +102,7 @@
       <workItem from="1747823489320" duration="1907000" />
       <workItem from="1747838916995" duration="10647000" />
       <workItem from="1747904982960" duration="7364000" />
-      <workItem from="1747916980207" duration="6812000" />
+      <workItem from="1747916980207" duration="10063000" />
     </task>
     <servers />
   </component>
