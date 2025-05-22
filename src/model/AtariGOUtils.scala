@@ -1,6 +1,6 @@
 package model
 
-import model.AtariGo.Board
+import GameState.Board
 import model.Stone.Stone
 
 import java.io.{File, PrintWriter}

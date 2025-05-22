@@ -36,7 +36,7 @@ object MainTUI extends App {
     val input = AtariGOUtils.startMenu(gameState.size, gameState.stonesToWin, gameState.timeLimit, gameState.difficultyLevel, gameState.playerColor)
       input match {
         case 1 =>
-          gameLoop(gameState, history, r)
+          gameLoop(gameState, r)
         case 2 =>
           val newSize = AtariGOUtils.promptNum("Enter board dimensions: (between 5 and 9)")
           if(newSize >= 5 && newSize <= 9){
@@ -112,7 +112,7 @@ object MainTUI extends App {
   }
 
   @tailrec
-  def gameLoop(gameState: GameState, hist:List[GameState], r: MyRandom): Unit = {
+  def gameLoop(gameState: GameState, r: MyRandom): Unit = {
     //fazer pattern matching do gameState.currentPlayer
     gameState.currentPlayer match {
 
@@ -156,18 +156,18 @@ object MainTUI extends App {
             //"undo"
             case "undo" =>
               //devolve o valor obtido com undo
-              val newUndo = undo(hist)
+              val newUndo = undo(gameState.history)
               //com o valor obtido, verificar (pattern matching):
               newUndo match {
                 //no caso de Some((gameState, hist))
                 case Some((oldGameState, oldHistory)) =>
                   // atualiza o estado atual do jogo (criar um novo estado, mas na verdade estamos a buscar o anterior)
-                  gameLoop(oldGameState, oldHistory, newR)
+                  gameLoop(oldGameState, newR)
                 //no caso de None
                 case None =>
                   // nao atualiza (ou seja, mantem o estado), mostrando uma msg de erro a informar que nao existe historico (pois nao existem jogadas, caso seja a primeira)
                   AtariGOUtils.printError("No history!")
-                  gameLoop(gameState, hist, newR)
+                  gameLoop(gameState, newR)
               }
 
             // "row,col"
@@ -177,9 +177,9 @@ object MainTUI extends App {
               if(expired){
                 AtariGOUtils.printInfo("Time's up! You took too long...")
                 //Passa a vez ao bot
-                val newGameState = gameState.copy(currentPlayer = if (gameState.playerColor == Stone.Black) Stone.White else Stone.Black)
+                val newGameState = gameState.copy(currentPlayer = if (gameState.playerColor == Stone.Black) Stone.White else Stone.Black, history = gameState :: gameState.history)
                 //avanca com o novo estado e incrementa o historico
-                gameLoop(newGameState, gameState :: hist, newR)
+                gameLoop(newGameState, newR)
               }
               else{
                 //verificamos se input segue o mesmo padrao regex que foi definido em pattern
@@ -197,17 +197,18 @@ object MainTUI extends App {
                       val newGameState = gameState.copy(
                         board = newBoard,
                         lstOpenCoords = newLstOpenCoords,
-                        currentPlayer = nextPlayer
+                        currentPlayer = nextPlayer,
+                        history = gameState :: gameState.history
                       )
-                      gameLoop(newGameState, gameState :: hist, newR)
+                      gameLoop(newGameState, newR)
 
                     case _ =>
                       AtariGOUtils.printError("Invalid move!")
-                      gameLoop(gameState, hist, newR)
+                      gameLoop(gameState, newR)
                   }
                 } else {
                   AtariGOUtils.printError("Invalid Input!")
-                  gameLoop(gameState, hist, newR)
+                  gameLoop(gameState, newR)
                 }
             }
         }
@@ -228,7 +229,7 @@ object MainTUI extends App {
           currentPlayer = nextPlayer
         )
         // historico nao muda porque nao sera o jogador a jogar
-        gameLoop(newGameState, hist, newRand)
+        gameLoop(newGameState, newRand)
     }
   }
 }

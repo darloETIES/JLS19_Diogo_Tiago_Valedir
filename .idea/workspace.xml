@@ -5,23 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c031a505-ecb4-45ce-9d39-b6287ba5f808" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/FxApp.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/GameState.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lastMyRandom" beforeDir="false" afterPath="$PROJECT_DIR$/lastMyRandom" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AtariGOUtils.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/AtariGOUtils.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AtariGo.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/AtariGo.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameState.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainGUI.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/MainGUI.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainTUI.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/MainTUI.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyRandom.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/MyRandom.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RandomWithState.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/RandomWithState.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Stone.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Stone.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/MainTUI.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/MainTUI.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/AtariGOController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/AtariGOController.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/OptionsViewController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/OptionsViewController.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/guiutils/GameLauncher.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/GameLauncher.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/atariGoView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/atariGoView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/gameOptionsView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/gameOptionsView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/AtariGOUtils.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/AtariGOUtils.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/AtariGo.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/GameState.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/GameState.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +191,7 @@
       <workItem from="1747304086517" duration="2401000" />
       <workItem from="1747416270801" duration="11732000" />
       <workItem from="1747484194717" duration="21806000" />
-      <workItem from="1747820156615" duration="46076000" />
+      <workItem from="1747820156615" duration="53186000" />
     </task>
     <servers />
   </component>

@@ -7,7 +7,7 @@ import com.sun.glass.ui.Application.EventHandler
 import javafx.animation.{Animation, FadeTransition, PauseTransition}
 import javafx.fxml.{FXML, FXMLLoader}
 import javafx.scene.{Parent, Scene}
-import javafx.scene.control.{Button, Label, ProgressBar, Slider}
+import javafx.scene.control.{Button, Label, ProgressBar, Slider, Tooltip}
 import javafx.scene.effect.DropShadow
 import javafx.scene.image.{Image, ImageView}
 import javafx.scene.layout.{BorderPane, ColumnConstraints, GridPane, Pane, RowConstraints, StackPane}
@@ -15,7 +15,7 @@ import javafx.scene.paint.Color
 import javafx.stage.{Modality, Stage}
 import javafx.util.Duration
 import model.{AtariGOUtils, GameState, MyRandom, Stone}
-import model.GameState.{Board, Coord2D, createNewBoard, createNewListOpenCoords, randomMove, undo}
+import model.GameState.{Board, Coord2D, createNewBoard, createNewListOpenCoords, isValid, randomMove, undo}
 
 import scala.::
 import scala.annotation.tailrec
@@ -53,12 +53,12 @@ class AtariGOController {
   //começa o jogo, com o clicar do botão de Play do menu das opcoes
   def startGame(color: String):Unit = {
 
+    resetTimer()
 
     updateUndoButtonState()
     //cria a interatividade com as celulas da grid, considerando a cor do jogador
     addClickListernersToGrid(gridPaneGame.getChildren, color)
     println(color)
-    resetTimer()
   }
 
   def addClickListernersToGrid(children: java.util.List[javafx.scene.Node],playerColor:String, i: Int = 0): Unit = {
@@ -87,8 +87,24 @@ class AtariGOController {
 
             //caso a imagem seja noStone.png (não tem stone)
             if(stoneImageView.getImage.getUrl == noStoneURL){
+
+              //criacao de uma tooltip para avisar quando se joga numa posicao sem liberdades
+              val tooltip = new Tooltip(s"🚫 NÃO EXISTE LIBERDADE! 🚫")
+              tooltip.setStyle(
+                """
+                  | -fx-font-size: 13px;
+                  | -fx-font-weight: bold;
+                  | -fx-background-color: #FFCCCC;
+                  | -fx-text-fill: #B00020;
+                  | -fx-border-color: #B00020;
+                  | -fx-border-width: 1;
+                  | -fx-padding: 10;
+                  | -fx-background-radius: 5;
+                  | -fx-border-radius: 5;
+                    """.stripMargin)
+
               //event handling
-              //fazer hover (passar o cursosr por cima)
+              //fazer hover (passar o cursor por cima)
               stoneImageView.setOnMouseEntered { _ =>
 
                 val row = Option(GridPane.getRowIndex(stackPane).toInt).getOrElse(0)
@@ -97,30 +113,42 @@ class AtariGOController {
                 //após saber a coord, fazer aqui um if que cobre todo o codigo abaixo, de forma a verificar a validade da jogada
                 //ex: if(isValid())
                 //assim posso fazer depois o play(...) so depois de ter verificado
+
                 if (FxApp.game.board(row)(col) == Stone.Empty && FxApp.game.currentPlayer == FxApp.game.playerColor) {
                   hoverImageView.setOpacity(0.4)
                   //clicar na celula da grid
                   stoneImageView.setOnMouseClicked { _ =>
 
                     //fazer a jogada
-                    val (newBoard, newLstOpenCoords) = FxApp.game.play(coord2DtoPlay)
-                    val newHist: List[GameState] = FxApp.game :: FxApp.game.history
-                    val nextPlayer = if (FxApp.game.currentPlayer == Stone.Black) Stone.White else Stone.Black
+                    FxApp.game.play(coord2DtoPlay) match {
+                      case (Some(newBoard), newLstOpenCoords) =>
+                        val newHist: List[GameState] = FxApp.game :: FxApp.game.history
+                        val nextPlayer = if (FxApp.game.currentPlayer == Stone.Black) Stone.White else Stone.Black
 
-                    FxApp.game = FxApp.game.copy(board = newBoard.get, lstOpenCoords = newLstOpenCoords, currentPlayer = nextPlayer, history = newHist)
+                        FxApp.game = FxApp.game.copy(board = newBoard, lstOpenCoords = newLstOpenCoords, currentPlayer = nextPlayer, history = newHist)
 
-                    val r = MyRandom(AtariGOUtils.readMyRandomStateToFile())
-                    val newRand = AtariGOUtils.createNewMyRandom(r)
+                        val r = MyRandom(AtariGOUtils.readMyRandomStateToFile())
+                        val newRand = AtariGOUtils.createNewMyRandom(r)
 
-                    //passa para a vez do bot e atualiza o jogo
-                    computerTurn()
+                        //passa para a vez do bot e atualiza o jogo
+                        computerTurn()
 
-                    println(" \nBoard:\n " + AtariGOUtils.printBoard(FxApp.game.board))
+                        println(" \nBoard:\n " + AtariGOUtils.printBoard(FxApp.game.board))
+                      case _ =>
+                        tooltip.setShowDelay(Duration.millis(0))
+                        tooltip.setShowDuration(Duration.seconds(10))
+                        Tooltip.install(stackPane, tooltip)
+                    }
+
+
+
+
                   }
                 }
               }
               //cancelar o hover (sair com o cursor da celula da grid)
               stoneImageView.setOnMouseExited { _ =>
+                Tooltip.uninstall(stackPane, tooltip)
                 hoverImageView.setOpacity(0)
               }
             }
@@ -239,8 +267,9 @@ class AtariGOController {
   }
 
   def onNewGameMouseClicked(): Unit = {
+    currentPauseTransition.get.stop()
     newGameBtn.getScene.getWindow.hide()
-    FxApp.game = GameState(createNewBoard(size), createNewListOpenCoords(size), 0,0, size, 1, 30000, 1, Stone.White, Stone.White, List())
+    FxApp.game = GameState(createNewBoard(size), createNewListOpenCoords(size), 0,0, size, 1, 20000, 1, Stone.White, Stone.White, List())
     app.GameLauncher.launchNewGame() //a partir do objeto GameLauncher, cria um novo jogo
   }
 
