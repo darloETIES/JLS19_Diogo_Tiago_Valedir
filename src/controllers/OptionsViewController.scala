@@ -1,13 +1,21 @@
 package controllers
 
+import app.FxApp
 import javafx.fxml.FXML
-import javafx.scene.control.{Button, RadioButton, ToggleGroup}
+import javafx.scene.control.{Button, RadioButton, Slider, ToggleGroup}
 import javafx.stage.Stage
+import model.{GameState, Stone}
 
-class OptionsViewController {
+class OptionsViewController(val atariGOController: AtariGOController) {
 
   @FXML
   private var playButton:Button = _
+
+  @FXML
+  private var stonesToWinSlider:Slider = _
+
+  @FXML
+  private var difficultySlider:Slider = _
 
   @FXML
   private var radioPlayerColorBtns:ToggleGroup = _
@@ -18,14 +26,8 @@ class OptionsViewController {
   @FXML
   private var whiteRadio:RadioButton = _
 
-  @FXML
-  private var atariGOController:AtariGOController = _
-
-  def setAtariGOController(controller: AtariGOController): Unit = {
-    this.atariGOController = controller
-  }
-
   def getSelectedColor: String = {
+
     val selectedToggle = radioPlayerColorBtns.getSelectedToggle
     if(selectedToggle != null){
       selectedToggle.asInstanceOf[RadioButton].getText
@@ -37,8 +39,18 @@ class OptionsViewController {
 
   def onPlayButtonClicked(): Unit = {
 
+
+
+
+    FxApp.game = FxApp.game.copy(
+      stonesToWin = stonesToWinSlider.getValue.toInt,
+      playerColor = if(getSelectedColor == "White") Stone.White else Stone.Black,
+      currentPlayer = if(getSelectedColor == "White") Stone.White else Stone.Black,
+      difficultyLevel = difficultySlider.getValue.toInt
+    )
+
     //obtem a cor escolhida para jogar dos botoes Radio
-    atariGOController.startGameWithColor(getSelectedColor)
+    atariGOController.startGame(getSelectedColor)
 
     //fecha a janela modal das opcoes
     val stage = playButton.getScene.getWindow.asInstanceOf[Stage]

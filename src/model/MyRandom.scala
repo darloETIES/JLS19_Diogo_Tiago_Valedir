@@ -1,3 +1,5 @@
+package model
+
 case class MyRandom(seed: Long) extends RandomWithState {
   def nextInt(n: Int): (Int, MyRandom) = {
     val newSeed = (seed * 0x5DEECE66DL + 0xBL) & 0xFFFFFFFFFFFFL

@@ -1,8 +1,10 @@
-import AtariGo.{Board, Coord2D, createNewBoard, createNewListOpenCoords, play, playRandomly, randomMove, startTime, timeUp, undo}
-import Stone.Stone
+package app
+
+import model.GameState.{Coord2D, createNewBoard, createNewListOpenCoords, play, playRandomly, randomMove, startTime, timeUp, undo}
+import model.{AtariGOUtils, GameState, MyRandom, Stone}
+import model.Stone.Stone
 
 import scala.annotation.tailrec
-import scala.io.StdIn.readLine
 import scala.sys.exit
 
 object MainTUI extends App {
@@ -14,11 +16,15 @@ object MainTUI extends App {
   val defaultTimeLimit = 20000 //20 segundos em milisegundos
   val defaultDifficulty = 1
   val defaultPlayerColor:Stone = Stone.Black
-  val initialBoard = AtariGo.createNewBoard(defaultSize)
-  val initialLstOpenCoords = AtariGo.createNewListOpenCoords(defaultSize)
+  val initialBoard = GameState.createNewBoard(defaultSize)
+  val initialLstOpenCoords = GameState.createNewListOpenCoords(defaultSize)
 
-  val initialGameState = new GameState(initialBoard, initialLstOpenCoords, 0 , 0, defaultSize, defaultStonesToWin, defaultTimeLimit, defaultDifficulty, defaultPlayerColor, defaultPlayerColor)
   val initialHistory = List() //ainda nao ocorreram jogadas, logo nao havera historico
+  val initialGameState = new GameState(initialBoard, initialLstOpenCoords, 0 , 0, defaultSize, defaultStonesToWin, defaultTimeLimit, defaultDifficulty, defaultPlayerColor, defaultPlayerColor, initialHistory)
+
+
+  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+  //NAO ESQUECER MUDAR O STARTGAME E GAMELOOP PARA TER O HISTORY ATRAVES DO GAMESTATE!!!!!!!!!
 
 
   //para comecar o jogo (main)

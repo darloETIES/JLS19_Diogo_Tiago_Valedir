@@ -1,4 +1,6 @@
-import Stone.Stone
+package model
+
+import model.Stone.Stone
 
 import scala.annotation.tailrec
 

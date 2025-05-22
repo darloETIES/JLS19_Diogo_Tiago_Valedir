@@ -1,5 +1,7 @@
-import AtariGo.Board
-import Stone.Stone
+package model
+
+import model.AtariGo.Board
+import model.Stone.Stone
 
 import java.io.{File, PrintWriter}
 import scala.annotation.tailrec

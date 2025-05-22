@@ -441,7 +441,7 @@
             <left>
                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                   <children>
-                     <Button fx:id="undoBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="undoBtn" stylesheets="@../styles/styles.css">
+                     <Button fx:id="undoBtn" mnemonicParsing="false" onMouseClicked="#onUndoBtnMouseClicked" prefHeight="40.0" prefWidth="40.0" styleClass="undoBtn" stylesheets="@../styles/styles.css">
                         <graphic>
                            <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                               <image>
@@ -449,7 +449,7 @@
                               </image>
                            </ImageView>
                         </graphic></Button>
-                     <Label text="3" />
+                     <Label text="Undo" />
                   </children>
                </VBox>
             </left>

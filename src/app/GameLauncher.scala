@@ -1,4 +1,4 @@
-package guiutils
+package app
 
 import controllers.{AtariGOController, OptionsViewController}
 import javafx.fxml.FXMLLoader
@@ -21,15 +21,14 @@ object GameLauncher {
     atariGOStage.show()
     atariGOStage.setTitle("Atari GO")
 
-
-
     //carrega a janela modal das opcoes
     val optionsStage: Stage = new Stage()
     val modalFxmlLoader = new FXMLLoader(getClass.getResource("/views/gameOptionsView.fxml"))
+    //cria um novo controller do menu das opcoes, associado ao controller do jogo
+    modalFxmlLoader.setControllerFactory(_ => new OptionsViewController(atariController))
+
     val modalViewRoot: Parent = modalFxmlLoader.load()
 
-    //obter o controller do jogo
-    val optionsController = modalFxmlLoader.getController[OptionsViewController]
 
     val modalScene = new Scene(modalViewRoot)
     optionsStage.setScene(modalScene)
@@ -37,9 +36,6 @@ object GameLauncher {
     optionsStage.initModality(Modality.WINDOW_MODAL)
     optionsStage.initOwner(atariGOStage.getScene.getWindow)
     optionsStage.show()
-
-
-    optionsController.setAtariGOController(atariController)
 
     //event handler
     //caso ocorra o fecho da janela de opcoes, fecha o jogo

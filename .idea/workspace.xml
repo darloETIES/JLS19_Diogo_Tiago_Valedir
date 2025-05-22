@@ -5,11 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c031a505-ecb4-45ce-9d39-b6287ba5f808" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/app/FxApp.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/GameState.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lastMyRandom" beforeDir="false" afterPath="$PROJECT_DIR$/lastMyRandom" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AtariGOUtils.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/AtariGOUtils.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AtariGo.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/AtariGo.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainTUI.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainTUI.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AtariGOUtils.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/AtariGOUtils.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AtariGo.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/AtariGo.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameState.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainGUI.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/MainGUI.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainTUI.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/MainTUI.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyRandom.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/MyRandom.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RandomWithState.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/RandomWithState.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Stone.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Stone.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/AtariGOController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/AtariGOController.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/OptionsViewController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/OptionsViewController.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/guiutils/GameLauncher.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/GameLauncher.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/atariGoView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/atariGoView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/gameOptionsView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/gameOptionsView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +37,7 @@
         <option value="module-info" />
         <option value="FxmlFile" />
         <option value="CSS File" />
+        <option value="Scala Object" />
       </list>
     </option>
   </component>
@@ -43,53 +56,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.AtariGOApp.executor&quot;: &quot;Run&quot;,
-    &quot;Application.AtariGo.executor&quot;: &quot;Run&quot;,
-    &quot;Application.FxApp.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainTUI.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;UI&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Diogo/Desktop/ISCTEStuff/PPM/PROJETO_PPM/PPM_GrupoJLS19_AtariGo&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.AtariGOApp.executor": "Run",
+    "Application.AtariGo.executor": "Run",
+    "Application.FxApp.executor": "Run",
+    "Application.MainTUI.executor": "Run",
+    "Application.app.FxApp.executor": "Run",
+    "Application.app.MainTUI.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "UI",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Diogo/Desktop/ISCTEStuff/PPM/PROJETO_PPM/PPM_GrupoJLS19_AtariGo",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Diogo\Desktop\ISCTEStuff\PPM\PROJ_PPM\JLS19_Diogo_Tiago_Valedir\src\resources" />
       <recent name="C:\Users\Diogo\Desktop\ISCTEStuff\PPM\PROJ_PPM\JLS19_Diogo_Tiago_Valedir" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Diogo\Desktop\ISCTEStuff\PPM\PROJ_PPM\JLS19_Diogo_Tiago_Valedir\src\model" />
+      <recent name="C:\Users\Diogo\Desktop\ISCTEStuff\PPM\PROJ_PPM\JLS19_Diogo_Tiago_Valedir\src\app" />
       <recent name="C:\Users\Diogo\Desktop\ISCTEStuff\PPM\PROJ_PPM\JLS19_Diogo_Tiago_Valedir\src\resources" />
       <recent name="C:\Users\Diogo\Documents\ProjetoPPM\JLS19_Diogo_Tiago_Valedir\src\resources" />
       <recent name="C:\Users\Diogo\Documents\ProjetoPPM\JLS19_Diogo_Tiago_Valedir" />
-      <recent name="C:\Users\Diogo\Documents\ProjetoPPM\JLS19_Diogo_Tiago_Valedir\images" />
-      <recent name="C:\Users\Diogo\Documents\ProjetoPPM\JLS19_Diogo_Tiago_Valedir\styles" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainTUI">
+  <component name="RunManager" selected="Application.app.FxApp">
     <configuration name="AtariGOApp" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="AtariGOApp" />
-      <module name="JLS19_Diogo_Tiago_Valedir" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AtariGo" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="AtariGo" />
       <module name="JLS19_Diogo_Tiago_Valedir" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -109,18 +117,46 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="app.FxApp" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="app.FxApp" />
+      <module name="JLS19_Diogo_Tiago_Valedir" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app.MainTUI" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="app.MainTUI" />
+      <module name="JLS19_Diogo_Tiago_Valedir" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
+      <item itemvalue="Application.app.FxApp" />
+      <item itemvalue="Application.app.MainTUI" />
       <item itemvalue="Application.MainTUI" />
       <item itemvalue="Application.FxApp" />
-      <item itemvalue="Application.AtariGo" />
       <item itemvalue="Application.AtariGOApp" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MainTUI" />
+        <item itemvalue="Application.app.FxApp" />
+        <item itemvalue="Application.app.MainTUI" />
         <item itemvalue="Application.FxApp" />
+        <item itemvalue="Application.MainTUI" />
         <item itemvalue="Application.AtariGOApp" />
-        <item itemvalue="Application.AtariGo" />
       </list>
     </recent_temporary>
   </component>
@@ -165,7 +201,7 @@
       <workItem from="1747304086517" duration="2401000" />
       <workItem from="1747416270801" duration="11732000" />
       <workItem from="1747484194717" duration="21806000" />
-      <workItem from="1747820156615" duration="10430000" />
+      <workItem from="1747820156615" duration="46076000" />
     </task>
     <servers />
   </component>
