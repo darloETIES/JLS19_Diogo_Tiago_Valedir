@@ -15,7 +15,7 @@ import javafx.scene.paint.Color
 import javafx.stage.{Modality, Stage}
 import javafx.util.Duration
 import model.{AtariGOUtils, GameState, MyRandom, Stone}
-import model.GameState.{Board, Coord2D, createNewBoard, createNewListOpenCoords, isValid, randomMove, undo}
+import model.GameState.{Board, Coord2D, createNewBoard, createNewListOpenCoords, randomMove, undo}
 
 import scala.::
 import scala.annotation.tailrec
@@ -27,6 +27,12 @@ class AtariGOController {
 
   @FXML
   private var gridPaneGame:GridPane = _
+
+  @FXML
+  private var whiteCapslabel:Label = _
+
+  @FXML
+  private var blackCapslabel:Label = _
 
   @FXML
   private var turnTimeProgressBar:ProgressBar = _
@@ -58,7 +64,6 @@ class AtariGOController {
     updateUndoButtonState()
     //cria a interatividade com as celulas da grid, considerando a cor do jogador
     addClickListernersToGrid(gridPaneGame.getChildren, color)
-    println(color)
   }
 
   def addClickListernersToGrid(children: java.util.List[javafx.scene.Node],playerColor:String, i: Int = 0): Unit = {
@@ -119,13 +124,28 @@ class AtariGOController {
                   //clicar na celula da grid
                   stoneImageView.setOnMouseClicked { _ =>
 
+
                     //fazer a jogada
                     FxApp.game.play(coord2DtoPlay) match {
                       case (Some(newBoard), newLstOpenCoords) =>
+
+
                         val newHist: List[GameState] = FxApp.game :: FxApp.game.history
                         val nextPlayer = if (FxApp.game.currentPlayer == Stone.Black) Stone.White else Stone.Black
 
-                        FxApp.game = FxApp.game.copy(board = newBoard, lstOpenCoords = newLstOpenCoords, currentPlayer = nextPlayer, history = newHist)
+                        val playerStone = FxApp.game.currentPlayer
+                        val (_, capturesInTurn) = FxApp.game.captureGroupStones(newBoard, coord2DtoPlay)
+
+                        val (newPlayerCapture, newComputerCapture) =
+                          if (playerStone == FxApp.game.playerColor)
+                            (FxApp.game.playerCapture + capturesInTurn, FxApp.game.computerCapture)
+                          else
+                            (FxApp.game.playerCapture, FxApp.game.computerCapture + capturesInTurn)
+
+                        FxApp.game = FxApp.game.copy(board = newBoard, lstOpenCoords = newLstOpenCoords, playerCapture = newPlayerCapture, computerCapture = newComputerCapture, currentPlayer = nextPlayer, history = newHist)
+
+
+                        println(FxApp.game.playerCapture + " - " + FxApp.game.computerCapture)
 
                         val r = MyRandom(AtariGOUtils.readMyRandomStateToFile())
                         val newRand = AtariGOUtils.createNewMyRandom(r)
@@ -139,10 +159,6 @@ class AtariGOController {
                         tooltip.setShowDuration(Duration.seconds(10))
                         Tooltip.install(stackPane, tooltip)
                     }
-
-
-
-
                   }
                 }
               }
@@ -162,7 +178,14 @@ class AtariGOController {
 
   def updateGame(board: Board): Unit = {
 
-
+    if(FxApp.game.playerColor == Stone.Black){
+      blackCapslabel.setText(FxApp.game.playerCapture.toString)
+      whiteCapslabel.setText(FxApp.game.computerCapture.toString)
+    }
+    else{
+      blackCapslabel.setText(FxApp.game.computerCapture.toString)
+      whiteCapslabel.setText(FxApp.game.playerCapture.toString)
+    }
 
     updateUndoButtonState()
     val children = gridPaneGame.getChildren.asScala.toList
@@ -229,8 +252,6 @@ class AtariGOController {
     val step = 1.0 / turnTime
 
     def stepBar(current:Int, pauseTransition: PauseTransition): Unit = {
-
-      println(current + " - " + turnTime)
       if(current >= turnTime) {
         pauseTransition.stop()
 

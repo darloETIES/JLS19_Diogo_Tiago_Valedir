@@ -9,9 +9,9 @@
       <change beforePath="$PROJECT_DIR$/lastMyRandom" beforeDir="false" afterPath="$PROJECT_DIR$/lastMyRandom" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/MainTUI.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/MainTUI.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/AtariGOController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/AtariGOController.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/AtariGOUtils.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/AtariGOUtils.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/AtariGo.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/OptionsViewController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/OptionsViewController.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/GameState.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/GameState.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/atariGoView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/atariGoView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +191,7 @@
       <workItem from="1747304086517" duration="2401000" />
       <workItem from="1747416270801" duration="11732000" />
       <workItem from="1747484194717" duration="21806000" />
-      <workItem from="1747820156615" duration="53186000" />
+      <workItem from="1747820156615" duration="78279000" />
     </task>
     <servers />
   </component>

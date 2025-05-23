@@ -38,10 +38,6 @@ class OptionsViewController(val atariGOController: AtariGOController) {
   }
 
   def onPlayButtonClicked(): Unit = {
-
-
-
-
     FxApp.game = FxApp.game.copy(
       stonesToWin = stonesToWinSlider.getValue.toInt,
       playerColor = if(getSelectedColor == "White") Stone.White else Stone.Black,

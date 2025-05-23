@@ -24,7 +24,9 @@ case class GameState(
   def randomMove(rand:MyRandom):(Coord2D, MyRandom) = GameState.randomMove(lstOpenCoords, rand)
   def play(coord2D:Coord2D):(Option[Board], List[Coord2D]) = GameState.play(board, currentPlayer, coord2D, lstOpenCoords)
   def playRandomly(r: MyRandom, f: (List[Coord2D], MyRandom) => (Coord2D, MyRandom)): (Board, MyRandom, List[Coord2D]) = GameState.playRandomly(board, r, currentPlayer, lstOpenCoords, f)
-
+  def getCaptures(board: Board ,coord2D: Coord2D): Int = GameState.getCaptures(currentPlayer, board, coord2D)
+  def captureGroupStones(board: Board, coord: Coord2D): (Board, Int) = GameState.captureGroupStones(board, currentPlayer, coord)
+  def checkWinner(capture: Int):Boolean = GameState.checkWinner(capture, stonesToWin)
   def undo(): Option[(GameState,List[GameState])] = GameState.undo(history)
   def startTime():Long = GameState.startTime()
   def timeUp(startTime: Long):Boolean = GameState.timeUp(startTime, timeLimit)
@@ -72,17 +74,28 @@ object GameState {
   //T2
   def play(board:Board, player: Stone, coord:Coord2D, lstOpenCoords:List[Coord2D]):(Option[Board], List[Coord2D]) = {
     //iremos validar se é possível jogar na coordenada fornecida (coord)
-    if(isValid(board,player,coord, lstOpenCoords)){
+    val neighbors = getNeighbors(board, coord)
+    if(isValidMove(board, coord, player, neighbors) && lstOpenCoords.contains(coord)){
 
       //List.updated(pos a trocar, elem) -> No nosso caso acedemos à linha a trocar (coord._1) e depois percorremos as colunas (coord._2).
       //Após isso é substituido o elemento anterior por player
       val updatedBoard = board.updated(coord._1, board(coord._1).updated(coord._2, player))
 
+      //corre o metodo da T5 onde obtem um tabuleiro apos as capturas e o nr de capturas feitas
+      //este board sera sempre usado, apenas tera diferenca caso haja capturas
+      val (finalBoard, nCaptures) = captureGroupStones(updatedBoard, player, coord)
+
       //criar uma nova lista de coordenadas livres (excluir a coordenada que foi jogada a peça)
-      val newLstOpenCoords = lstOpenCoords filterNot (_ == coord)
+      val newLstOpenCoords = lstOpenCoords.filterNot(_ == coord) ++ { //e também ira conter:
+        if(nCaptures > 0){
+          //inclui coords onde pecas foram capturadas
+          getNeighbors(board, coord).filter(n => finalBoard(n._1)(n._2) == Stone.Empty && !lstOpenCoords.contains(n))
+        }
+        else Nil //caso nao haja capturas, ignora esta parte
+      }
 
       //devolver ambos
-      (Some(updatedBoard), newLstOpenCoords)
+      (Some(finalBoard), newLstOpenCoords)
     }
     else{
       (None, lstOpenCoords)
@@ -92,155 +105,118 @@ object GameState {
 
   //T3
   def playRandomly(board: Board, r: MyRandom, player: Stone, lstOpenCoords: List[Coord2D], f: (List[Coord2D], MyRandom) => (Coord2D, MyRandom)): (Board, MyRandom, List[Coord2D]) = {
-    val res = f(lstOpenCoords, r)
-    val up = play(board, player, res._1, lstOpenCoords) //REVER, pois tera que ter também a verificacao
-    (up._1.get, res._2,up._2)
-  }
+    @tailrec
+    def tryPlay(coords: List[Coord2D], r: MyRandom): (Board, MyRandom, List[Coord2D]) = {
+      if (coords.isEmpty)
+        throw new IllegalStateException("Nenhuma jogada válida encontrada para o bot.")
 
-  //metodo para encontrar os vizinhos de uma coordenada
-  def findNeighbors(board: Board, coord:Coord2D):List[Option[Coord2D]] ={
-
-    val up:Coord2D = (coord._1 - 1,coord._2) //sinal menos pois comecamos a gerar o board pela linha mais alta (por cima)
-    val down:Coord2D=(coord._1 + 1, coord._2)
-    val left:Coord2D=(coord._1,coord._2-1)
-    val right:Coord2D=(coord._1,coord._2+1)
-    val aux_nbrs:List[Coord2D] = List( up , down ,left ,right)
-
-    //verificar se os vizinhos estao numa posicao que existe
-    def onBoard(board: Board ,c:Coord2D):Boolean={
-      c._1>=0 && c._1<board.length && c._2>=0 && c._2<board.length
-    }
-
-    aux_nbrs.map{
-      c => if (onBoard(board, c)) Some(c)
-      else None
-    }
-
-  }
-
-  //metodo que verifica a possibilidade de jogar numa dada posicao
-  def isValid(board:Board, player:Stone,coord:Coord2D,lstOpenCoords:List[Coord2D]):Boolean ={
-
-    if(lstOpenCoords.contains(coord)){ // se a posicao nao estiver preenchida verificar se tem liberdade
-
-      val lstPossibleNeighbors:List[Option[Coord2D]] = findNeighbors(board, coord) //vizinhos validos mas com option
-      val lstValidNeighbors:List[Coord2D]= lstPossibleNeighbors.flatten //da uma lista com os vizinhos validos, retira os None e extrai os valores das coordenadas
-      val auxNeighbors = lstValidNeighbors.filter(x => board(x._1)(x._2).equals(Stone.Empty)) //fica com os vizinhos livres
-
-      if(auxNeighbors.nonEmpty){ //se houver pelo menos um vizinho livre existe liberdade
-        true
+      val (coord, newRand) = f(coords, r)
+      play(board, player, coord, lstOpenCoords) match {
+        case (Some(newBoard), newLstOpenCoords) =>
+          (newBoard, newRand, newLstOpenCoords)
+        case (None, _) =>
+          // jogada inválida – tente novamente com o restante da lista (excluindo a coordenada testada)
+          tryPlay(coords.filterNot(_ == coord), newRand)
       }
-      else{ //se n houver vizinhos livres logo se o grupo esta cercado temos que verificar se
-        //VER LIBERDADE DO GRUPO
-        val group:List[Coord2D] = findGroup(board, coord, player)
+    }
 
-        if(groupHasLiberty(board, coord, group)){ //se o grupo tem liberdade pode se jogar
-          true
-        }else{
+    tryPlay(lstOpenCoords, r)
+  }
 
-          if(canCapture(board, coord, player)){ //se o grupo nao tiver liberdade apenas pode se jogar em caso de captura
-            true
-          }else{
-            false
+
+
+  def getNeighbors(b: Board, pos: Coord2D): List[Coord2D] = {
+    val isValidPosition = (pos: Coord2D) => pos._1 >= 0 && pos._1 < b.length && pos._2 >= 0 && pos._2 < b.length
+    val list = List((pos._1 - 1, pos._2), (pos._1 + 1, pos._2), (pos._1, pos._2 - 1), (pos._1, pos._2 + 1))
+    list.filter(x => isValidPosition(x))
+  }
+
+  def hasLiberty(board: Board, group: List[Coord2D]): Boolean = {
+    group.exists { coord =>
+      getNeighbors(board, coord).exists(n => board(n._1)(n._2) == Stone.Empty)
+    }
+  }
+
+  def findGroup(board: Board, coord: Coord2D, stone: Stone): List[Coord2D] = {
+
+    //pending - lista de coords ainda por visitar
+    //visited - lista de coords ja visitadas
+    @tailrec
+    def helper(pending: List[Coord2D], visited: List[Coord2D]): List[Coord2D] = {
+      pending match {
+        case Nil => visited //caso de paragem, caso ja tenhamos visitado todas as coords do grupo
+        case current :: rest => //caso onde existe casas a visitar (logo, pending tem elementos ainda)
+          if (visited.contains(current)) helper(rest, visited) //caso a coord atual ja tenha sido visitada (ou seja se a mesma se encontra em visited)
+          else {
+            val neighbors = getNeighbors(board, current) //obtem-se os vizinhos de current (coord atual)
+            val sameColorNeighbors = neighbors.filter(n => board(n._1)(n._2) == stone) //dos vizinhos obtidos filtra de modo a obter apenas os da sua cor
+            //pending ficara com todos os vizinhos da mesma cor que a peca atual
+            //visited ficara com a peca atual (current) com a restante lista que la estava
+            helper(rest ++ sameColorNeighbors.filterNot(visited.contains), current :: visited)
           }
+      }
+    }
+    //comeca com a coord da peca atual numa lista para ainda analisar (pending) e outra lista nenhuma peca visitada (visited)
+    helper(List(coord), Nil)
+  }
 
+  def isValidMove(board: Board, coord: Coord2D, player: Stone, neighbors: List[Coord2D]): Boolean = {
+    if (board(coord._1)(coord._2) != Stone.Empty) false //se a posicao atual tiver alguma peca, não sera possivel jogar
+    else { //caso esteja livre:
+
+      //simulacao de colocar a pedra, de forma a criar um tabuleiro de teste, sem alterar o original
+      //sera util para testar determinado caso que possa acontecer
+      val testBoard = board.updated(coord._1, board(coord._1).updated(coord._2, player))
+
+      //encontra o grupo que esta nova peca ira pertencer (ou seja, todas as pedras conectadas diretamente, um grupo dessa peca)
+      val group = findGroup(testBoard, coord, player)
+
+      //se este novo grupo tem pelo menos uma liberdade
+      if (hasLiberty(testBoard, group)) true //a jogada sera valida
+      else { //caso contrario
+        val opponent = if(player == Stone.Black) Stone.White else Stone.Black //a peca do inimigo
+
+        //em cada vizinho, verifica:
+        neighbors.exists { n =>
+          board(n._1)(n._2) == opponent && /*se é oponente*/ {
+            //se o grupo de oponentes não tem liberdades
+            val oppGroup = findGroup(board, n, opponent)
+            !hasLiberty(board, oppGroup)
+          }
         }
       }
-
-
     }
-    else false //se a posicao nao estiver livre entao e impossivel jogar la
   }
 
-  def findGroup(board: Board,coord: Coord2D, player:Stone):List[Coord2D] ={
-    // queue - o que esta por visitar/analisar
-    // visited - posicoes ja visitadas
-    // group - grupo descoberto para ser retornado
-    def expand(queue:List[Coord2D], visited:List[Coord2D], group:List[Coord2D]): List[Coord2D] = queue match{
-      case Nil => group
-      case h::t =>{/*val headColor:Stone = board(h._1)(h._2)*/
-        val neighborsToVisit:List[Coord2D] = findNeighbors(board, h).flatten
-        val stoneGroup:List[Coord2D] = (neighborsToVisit.filter(x=> board(x._1)(x._2)==player) ++ group).distinct
-
-        val filteredNeighbors:List[Coord2D] = neighborsToVisit.filter( x => !visited.contains(x) /*&& board(x._1)(x._2)==player*/ )
-
-        expand( (t ++ filteredNeighbors).distinct, (h::visited).distinct, stoneGroup)
-      }
-
-    }
-    expand(List(coord), List(), List() ) //inicialmente so temos por explorar a propria coordenada e nao temos nenhuma posicao visitada nem ninguem pertencendo ao grupo
-  }
-
-  def groupHasLiberty(board:Board, coord: Coord2D, group:List[Coord2D]):Boolean ={
-    val groupStone:Stone = board(group.head._1)(group.head._2) //todos os elementos de um grupo deverao ter a mesma cor, por isso vamos buscar a cor de um certo elemento do grupo (neste caso a cabeca)
-    def analyseGroup(auxGroup:List[Coord2D], stone:Stone, groupEmptyNeighbors:List[Coord2D]):Boolean= auxGroup match {
-      case Nil => {
-        if (groupEmptyNeighbors.length > 1) true  //se o grupo tiver mais do que uma posicao livre a sua volta pode se jogar
-        else canCapture(board, coord, groupStone) //se o grupo tiver cercado e preciso ver se e possivel capturar de forma a ter liberdade
-      }
-      case h::t => {
-        val headNeighbors: List[Coord2D] = findNeighbors(board, h).flatten
-        val headEmptyNeighbors:List[Coord2D] = headNeighbors.filter(x=> board(x._1)(x._2).equals(Stone.Empty))
-        val emptyNeighbors:List[Coord2D] = (groupEmptyNeighbors++headEmptyNeighbors).distinct
-
-        analyseGroup(t,stone,emptyNeighbors)
-
-      }
-    }
-    analyseGroup(group,groupStone,List() )
-  }
-
-  def canCapture(board:Board,coord:Coord2D,player:Stone):Boolean ={
-    val neighbors:List[Coord2D] = findNeighbors(board, coord).flatten
-    val rivalStone:Stone = if(player.equals(Stone.Black)) Stone.White else Stone.Black
-
-    //caso em que a posicao que se quer jogar esta rodeada por adversarios
-    val rivalNeighbors:Int= neighbors.count(x => (board(x._1)(x._2).equals(rivalStone) ))
-    //SO ESTA IMPLEMENTADO PARA O CASO SIMPLES DE QUERER CAPTURAR ALGUEM QUE RODEIA DIRETAMENTE A COORD PRETENDIDA
-
-    if(rivalNeighbors == neighbors.length) { // se a posicao que se quer jogar tiver rodeada de rivais so se pode jogar se capturar
-      //se estiver cercado temos de verificar se colocando a peça se pode capturar o "grupo" que a cerca
-      canCaptureNeighbors(board,neighbors,player,rivalStone,coord)
-    } else false
-
-
-  }
-
-  def canCaptureNeighbors(board:Board, neighbors:List[Coord2D],player:Stone,neighborStone:Stone,coord:Coord2D):Boolean ={
-    def aux(auxNeighbors:List[Coord2D],auxCoord:Coord2D,numberOfCaptures:Int):Boolean = auxNeighbors match{
-      case Nil => {if (numberOfCaptures>0) true else false}
-      case h::t =>{
-        val neighborNeighbors:List[Coord2D] = findNeighbors(board, h).flatten //vizinhos do vizinho h
-        if(neighborNeighbors.count(x=> (board(x._1)(x._2).equals(player) || x.equals(coord)) ) == neighborNeighbors.length){
-          aux(t,auxCoord,numberOfCaptures+1)
-        }
-        else{aux(t,auxCoord,numberOfCaptures)}
-      }
-    }
-    aux(neighbors,coord,0)
-  }
-
-  /*
   //T5
-  def captureGroupStones(board: Board, player: Stone, coord:Coord2D):(Board, Int) ={
-    val group:List[Coord2D] = findGroup(board,coord,player)
-    def canSomeoneCapture(auxGroup:List[Coord2D], toRemove:List[Coord2D], nrOfCaptures:Int):(Board, Int)= auxGroup match{
-      case Nil => (board, nrOfCaptures)
-      case h::t =>{
-        val neighbors:List[Coord2D] = findNeighbors(h).flatten
-        //ver quem eq e rival
-        //para cada rival ver se e possivel capturar (por enquanto so caso simples de rodear esse rival
-        //para cada rival q possa ser capturado incrementar o int e subs as pecas a remover por empty
-        def neighborCapture(auxnei:List[Coord2D]):List[Coord2D]={
+  def captureGroupStones(board: Board, player: Stone, coord: Coord2D): (Board, Int) = {
+    val opponent = if (player == Stone.Black) Stone.White else Stone.Black //peca oponente
+    val neighbors = getNeighbors(board, coord) //vizinhos em relacao a jogada feita
 
-        }
+    val capturedGroups: List[List[Coord2D]] = neighbors
+      .filter(n => board(n._1)(n._2) == opponent) //filtra os vizinhos que sao oponentes
+      .map(n => findGroup(board, n, opponent)) //encontra os grupos dessas mesmas pecas (as anteriormente filtradas)
+      .filter(group => !hasLiberty(board, group)) //mantem apenas os grupos de oponentes que não tenham liberdades
+    //no fim teremos um grupo de oponentes sem liberdades que são vizinhos da posicao atual, logo, um grupo capturado
 
-      }
+    //convertemos esse mesmo grupo apenas em uma lista de coordenadas simples (pois capturedGroups é um List[List[Coord2D]] )
+    val capturedCoords: List[Coord2D] = capturedGroups.flatten.distinct
 
+    //ira percorrer cada posicao capturada, removendo-a do tabuleiro
+    val newBoard = capturedCoords.foldLeft(board) { (accBoard, pos) =>
+      accBoard.updated(pos._1, accBoard(pos._1).updated(pos._2, Stone.Empty))
     }
 
+    //devolve um tuplo com o tabuleiro atualizado sem as pecas capturadas e o nr de pecas capturadas
+    (newBoard, capturedCoords.length)
   }
-   */
+
+  def getCaptures(player:Stone, board: Board, coord2D: Coord2D): Int = {
+    captureGroupStones(board, player, coord2D)._2
+  }
+
+  //T6
+  def checkWinner(capture: Int, target: Int): Boolean = capture >= target
 
   //metodo para devolver o GameState anterior e a lista de GameState alterada (lista que não tem o GameState atual, pois voltamos para trás)
   def undo(history: List[GameState]): Option[(GameState,List[GameState])] = {

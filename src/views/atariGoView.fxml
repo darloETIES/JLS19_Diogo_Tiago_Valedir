@@ -388,7 +388,7 @@
                             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                 <children>
                                     <Label prefHeight="18.0" prefWidth="33.0" text="Caps:" />
-                                    <Label text="0" />
+                                    <Label fx:id="whiteCapslabel" text="0" />
                                 </children>
                             </HBox>
                         </children>
@@ -415,7 +415,7 @@
                             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                 <children>
                                     <Label prefHeight="18.0" prefWidth="33.0" text="Caps:" />
-                                    <Label text="0" />
+                                    <Label fx:id="blackCapslabel" text="0" />
                                 </children>
                             </HBox>
                         </children>

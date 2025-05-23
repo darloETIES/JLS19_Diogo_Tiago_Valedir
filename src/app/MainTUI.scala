@@ -122,6 +122,12 @@ object MainTUI extends App {
         //mostrar o tabuleiro
         AtariGOUtils.printBoard(gameState.board)
 
+        if(gameState.currentPlayer == Stone.Black){
+          AtariGOUtils.printInfo("Black caps: " + gameState.playerCapture + "\nWhite caps: " + gameState.computerCapture)
+        }
+        else{
+          AtariGOUtils.printInfo("Black caps: " + gameState.computerCapture + "\nWhite caps: " + gameState.playerCapture)
+        }
         //inicia o temporizador de jogada antes do input pelo utilizador
         val startTimer = startTime()
 
@@ -193,13 +199,24 @@ object MainTUI extends App {
                   //FALTA VERIFICACOES DE LIBERDADES, CAPTURAS,..
                   play(gameState.board, gameState.currentPlayer, coord2D, gameState.lstOpenCoords) match {
                     case (Some(newBoard), newLstOpenCoords) =>
+                      val (boardAfterCaptures, capturesInTurn) = gameState.captureGroupStones(newBoard, coord2D)
+                      println(s"Captures this turn: $capturesInTurn")
                       val nextPlayer = if (gameState.currentPlayer == Stone.Black) Stone.White else Stone.Black
+                      val (newPlayerCapture, newComputerCapture) =
+                        if (gameState.currentPlayer == gameState.playerColor)
+                          (gameState.playerCapture + capturesInTurn, gameState.computerCapture)
+                        else
+                          (gameState.playerCapture, gameState.computerCapture + capturesInTurn)
+
                       val newGameState = gameState.copy(
-                        board = newBoard,
+                        board = boardAfterCaptures,
                         lstOpenCoords = newLstOpenCoords,
+                        playerCapture = newPlayerCapture,
+                        computerCapture = newComputerCapture,
                         currentPlayer = nextPlayer,
                         history = gameState :: gameState.history
                       )
+
                       gameLoop(newGameState, newR)
 
                     case _ =>
